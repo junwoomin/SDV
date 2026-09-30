@@ -8,6 +8,8 @@ SDV is an early autonomous-driving research workspace that connects CARLA sensor
 
 > **Early research prototype.** This public snapshot still contains many unresolved errors and incomplete integrations. It may fail to launch, collect data, train, or display predictions without changes. End-to-end execution has not been verified for this release.
 
+**Language support:** The current application version supports Korean only.
+
 ## Demonstrations
 
 - [SDV UI demonstration](https://youtu.be/Y6UTaquOltg)
