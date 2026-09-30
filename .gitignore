@@ -1,0 +1,38 @@
+# Local credentials
+.env
+.env.*
+!.env.example
+credentials*.json
+secrets*.json
+*.pem
+*.key
+.aws/
+
+# Python and local environments
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.ipynb_checkpoints/
+.pytest_cache/
+.idea/
+.vscode/
+
+# Simulator installs and downloaded archives
+/carla/
+/CARLA_*.tar.gz
+/AdditionalMaps_*.tar.gz
+
+# Generated data, checkpoints, and experiment output
+/data/
+/Training_result/
+/wandb/
+*.pt
+*.pth
+*.ckpt
+*.onnx
+*.log
+
+# Desktop metadata
+.DS_Store
+Thumbs.db
