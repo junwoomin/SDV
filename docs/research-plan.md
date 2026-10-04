@@ -26,7 +26,7 @@ The code contains parts of this design, including sensor controls, CARLA collect
 
 ## Proposed simulation and generation path
 
-The research direction is to generate controllable scenarios in a lightweight 2D BEV simulator, then investigate how BEV scenes can condition richer sensor data. CARLA remains a validation environment.
+Development of the lightweight 2D BEV simulator was being pursued in the separate [LRS (Low Resource Simulation)](https://github.com/junwoomin/LRS) project. The research direction is to generate controllable scenarios in LRS, then investigate how BEV scenes can condition richer sensor data. CARLA remains a validation environment.
 
 ```mermaid
 flowchart TD
@@ -47,13 +47,15 @@ This graph describes a proposal. The public source does not include a completed 
 
 ### Vehicle simulation
 
-Use an Ackermann kinematic model to move vehicles within the BEV scene. A first implementation should establish coordinates, steering limits, time steps, and reproducible trajectories before expanding to more complex traffic.
+The lightweight BEV vehicle simulation was being developed through LRS, with an Ackermann kinematic model as the intended approach. A first implementation should establish coordinates, steering limits, time steps, and reproducible trajectories before expanding to more complex traffic.
 
 The motivation is to reduce the cost of scenario generation and reliance on long CARLA sessions. Lower memory use, faster generation, and adequate motion fidelity are hypotheses to measure.
 
 ### Sensor generation and evaluation
 
 Investigate whether BEV scene structure can condition camera images/video, occupancy, and LiDAR while keeping the outputs mutually consistent. Scene variations should preserve the intended vehicle positions and road geometry.
+
+Alongside reducing dependence on long-running CARLA data collection, the aim was to make the research workspace more useful. Inspired by UniScene, the intended extension was to incorporate style transfer and data augmentation reflecting real data or the visual styles of other simulators. The goal was to provide diverse training data for perception models robust across different environments.
 
 The plan includes adapting suitable generation methods to CARLA scenes and comparing perception results with nuScenes. Literature examples that motivated this direction are not SDV implementation results.
 
@@ -70,7 +72,7 @@ DEEPX export and SDV-RUN form the proposed deployment path. SDV would prepare a 
 1. Reconnect the existing UI, data collection, and training entry points and record a reproducible environment.
 2. Verify one small end-to-end perception experiment with fixed configuration and dataset paths.
 3. Add experiment tracking and consistent artifact metadata.
-4. Implement a minimal BEV vehicle simulation and validate selected trajectories in CARLA.
+4. Connect the lightweight BEV vehicle simulation from LRS and validate selected trajectories in CARLA.
 5. Test one BEV-conditioned output modality before attempting the full camera/occupancy/LiDAR pipeline.
 6. Evaluate CARLA/nuScenes transfer and then investigate DEEPX deployment and SDV-RUN.
 
