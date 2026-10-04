@@ -4,6 +4,8 @@
 
 [한국어](README_ko.md)
 
+SDV is an early prototype of an autonomous-driving research platform, initiated at the suggestion of a senior principal researcher during my time at KETI and developed independently over approximately three months. The goal was to integrate the available FMTC CARLA map into a single UI covering sensor configuration, data generation, model training, and result inspection. It was not a formal research project, and development stopped when I left KETI, leaving some features and integrations unfinished.
+
 SDV is an early autonomous-driving research workspace that connects CARLA sensor configuration, multimodal data collection, model configuration, training, and result inspection through a desktop UI. The aim is to make perception experiments easier to set up and compare.
 
 > **Early research prototype.** This public snapshot still contains many unresolved errors and incomplete integrations. It may fail to launch, collect data, train, or display predictions without changes. End-to-end execution has not been verified for this release.
