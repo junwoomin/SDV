@@ -2,9 +2,11 @@
 
 [한국어](development_ko.md) · [Project overview](../README.md)
 
-This is a source release of an unfinished research prototype. Expect unresolved errors. Syntax checking is the only execution-related check performed for this publication. The CARLA server, CUDA training, desktop UI, and device deployment were not run here.
+This is a source release of a research prototype whose basic configuration → data collection → model training → result inspection workflow was implemented and run during development. Development stopped when I left KETI, leaving extension features and some integrations unfinished.
 
-## Verified source-level blockers
+The notes below record execution-path and reproducibility issues in the current public source, rather than defining the historical implementation scope. Syntax checking is the only execution-related check performed for this publication. The CARLA server, CUDA training, desktop UI, and device deployment were not run here.
+
+## Current public-source execution and reproducibility issues
 
 | Area | Observation | Work needed |
 | --- | --- | --- |
