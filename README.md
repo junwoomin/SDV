@@ -4,11 +4,11 @@
 
 [한국어](README_ko.md)
 
-SDV is an early prototype of an autonomous-driving research platform, initiated at the suggestion of a senior principal researcher during my time at KETI and developed independently over approximately three months. The goal was to integrate the available FMTC CARLA map into a single UI covering sensor configuration, data generation, model training, and result inspection. It was not a formal research project, and development stopped when I left KETI, leaving some features and integrations unfinished.
+SDV is a prototype of an autonomous-driving research platform, initiated at the suggestion of a senior principal researcher during my time at KETI and developed independently over approximately three months. **During development, the basic configuration → data collection → model training → result inspection workflow was implemented and run.** The desktop UI covered CARLA sensor configuration, multimodal data collection, model configuration, training, and result inspection to make perception experiments easier to set up and compare.
 
-SDV is an early autonomous-driving research workspace that connects CARLA sensor configuration, multimodal data collection, model configuration, training, and result inspection through a desktop UI. The aim is to make perception experiments easier to set up and compare.
+The intended extension included integration with the available FMTC CARLA map. It was not a formal research project, and development stopped when I left KETI, leaving extension features and some integrations unfinished.
 
-> **Early research prototype.** This public snapshot still contains many unresolved errors and incomplete integrations. It may fail to launch, collect data, train, or display predictions without changes. End-to-end execution has not been verified for this release.
+> **Public source of a research prototype whose basic workflow ran during development.** The current snapshot still needs work on files, configuration paths, and dependencies for reproducibility. Separately from the historical execution, the full workflow has not been revalidated for this public release.
 
 **Language support:** The current application version supports Korean only.
 
@@ -19,9 +19,9 @@ SDV is an early autonomous-driving research workspace that connects CARLA sensor
 
 The videos and screenshots show earlier demonstrations. They do not establish that this source snapshot reproduces every demonstrated feature. Numbers visible in the UI are examples from those sessions, rather than validated benchmark results for this release.
 
-## Original workflow
+## Implemented basic workflow
 
-The initial design puts the full experiment cycle in one interface:
+The basic experiment workflow was implemented and run during development:
 
 1. Select CARLA towns, cameras, and LiDAR.
 2. Set sensor position, orientation, image size, and field of view.
@@ -29,7 +29,9 @@ The initial design puts the full experiment cycle in one interface:
 4. Choose model components and perception tasks, then set training parameters.
 5. Queue experiments, inspect training progress and predictions, and compare saved results before retraining.
 
-| Area | Components in this snapshot | Current limitation |
+The limitations below concern execution paths and reproducibility of the current public source.
+
+| Area | Components in this snapshot | Public-source work remaining |
 | --- | --- | --- |
 | Desktop interface | Pygame screens for sensor setup, data previews, model selection, training queues, and results | UI actions and backend entry points are not fully connected |
 | CARLA collection | Sensor wrappers, navigation helpers, scene creation, and multimodal output in `carla_run.py` | Requires a compatible CARLA server and local setup |
