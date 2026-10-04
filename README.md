@@ -55,8 +55,9 @@ The next design extends SDV from a CARLA experiment UI into a workspace for simu
 
 | Direction | Intended work |
 | --- | --- |
-| Lightweight 2D BEV simulation | Build a BEV simulator with an Ackermann kinematic vehicle model to explore driving behavior and generate scenarios with lower simulation overhead |
-| CARLA validation | Use CARLA to validate selected scenarios while investigating whether the BEV simulator can reduce dependence on long-running CARLA data collection |
+| Lightweight 2D BEV simulation | Development of the lightweight BEV simulator was being pursued in the separate [LRS (Low Resource Simulation)](https://github.com/junwoomin/LRS) project, using an Ackermann kinematic model to study driving behavior and scenario generation with lower simulation overhead |
+| CARLA validation | Validate selected LRS-generated scenarios in CARLA and explore reducing dependence on long-running CARLA data collection while making the research workspace more useful |
+| Style transfer and data augmentation | Inspired by UniScene, the intended extension was to incorporate style transfer and data augmentation reflecting real data or the visual styles of other simulators, enabling training of perception models robust across diverse environments |
 | BEV-conditioned generation | Investigate generating camera images/video, 3D occupancy, and LiDAR from BEV scenes, with controllable scene variations |
 | Dataset evaluation | Compare perception performance on CARLA and nuScenes and measure the usefulness of generated training data |
 | W&B integration | Track and analyze experiments, search hyperparameters, and save/share results through Weights & Biases |
