@@ -72,7 +72,7 @@ worker는 `get_world()`로 현재 맵을 사용하며 `load_world()`나 world �
 
 `studio/pretrained_service.py`는 학습 준비 검사에서 `prepare_weights=true`를 요청했을 때 선택 인코더의 가중치를 준비합니다. 공통 `sdv/training/model_registry.py`에 고정한 선택 인코더의 공식 배포 파일만 다운로드하며 URL을 사용자 입력으로 받지 않습니다. 웹 서버의 백그라운드 스레드가 파일 잠금으로 중복 작업을 막고, 내려받은 임시 파일의 SHA256이 공식 파일명 접두사와 일치하면 캐시에 원자적으로 공개합니다. 캐시는 `.runtime/cache/torch/hub/checkpoints/`, 작업 상태는 `.runtime/studio/pretrained/`에 저장합니다. 검증된 기존 파일은 재사용하고 잘못된 기존 파일은 덮어쓰지 않습니다. 상태 조회는 다운로드를 시작하지 않으며 서버 종료 시 진행 중인 다운로드를 정리합니다.
 
-공식 파일 두 종류의 실제 다운로드·검증과 Python 3.7에서 네트워크 없이 캐시 재사용을 확인한 기록은 [가중치 검증 기록](pretrained-validation.json)에 있습니다. 이는 연구 환경에서의 모델 역직렬화·CUDA 학습 검증을 뜻하지 않으며 다운로드한 QA 가중치는 배포물에 포함하지 않습니다.
+공식 파일 두 종류의 실제 다운로드·검증과 Python 3.7에서 네트워크 없이 캐시 재사용을 확인한 기록은 가중치 검증 기록 (local-only artifact: `pretrained-validation.json`; not distributed / 로컬 검증 자료·미배포)에 있습니다. 이는 연구 환경에서의 모델 역직렬화·CUDA 학습 검증을 뜻하지 않으며 다운로드한 QA 가중치는 배포물에 포함하지 않습니다.
 
 ## CARLA 설치·엔진 관리
 

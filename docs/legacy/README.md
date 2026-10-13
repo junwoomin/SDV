@@ -1,10 +1,10 @@
-> Native desktop UI update: Korean typography is rendered at the window resolution, with responsive content, fixed action/status bars, scrolling, and Ctrl +/-/0 sizing. [Current verification and limits](docs/qa/ui-responsive-20261006/REPORT.md).
+> Native desktop UI update: Korean typography is rendered at the window resolution, with responsive content, fixed action/status bars, scrolling, and Ctrl +/-/0 sizing. Current verification and limits (local-only artifact: `docs/qa/ui-responsive-20261006/REPORT.md`; not distributed / 로컬 검증 자료·미배포).
 
-> 2026-10-06 layout: implementation lives in `sdv/ui`, `config`, `runtime`, `collection`, and `training`; existing CLI launchers remain compatible. See [layout, tests, and recovery](docs/layout.md). New evidence is in docs/qa/refactor-20261006.
+> 2026-10-06 layout: implementation lives in `sdv/ui`, `config`, `runtime`, `collection`, and `training`; existing CLI launchers remain compatible. See layout, tests, and recovery (local-only artifact: `docs/layout.md`; not distributed / 로컬 검증 자료·미배포). New evidence is in docs/qa/refactor-20261006.
 
 > Local SDV_V1 verification and current launch instructions: [한국어 실행 안내](README_ko.md). Start with `./start.sh`. See [PROGRESS.md](PROGRESS.md) for successful checks, failed attempts, and untested training prerequisites.
 
-![SDV multimodal data preview](docs/images/data-preview.png)
+![SDV multimodal data preview](../images/data-preview.png)
 
 # SDV
 
@@ -47,17 +47,17 @@ The limitations below concern execution paths and reproducibility of the current
 
 ### Sensor configuration
 
-![Sensor placement and camera preview](docs/images/sensor-settings.png)
+![Sensor placement and camera preview](../images/sensor-settings.png)
 
 ### Model and training configuration
 
-![Training parameters](docs/images/training-config.png)
+![Training parameters](../images/training-config.png)
 
-![Experiment queue](docs/images/training-queue.png)
+![Experiment queue](../images/training-queue.png)
 
 ### Training inspection
 
-![BEV predictions during a previous training session](docs/images/training-preview.png)
+![BEV predictions during a previous training session](../images/training-preview.png)
 
 ## Planned research
 
@@ -77,7 +77,7 @@ Generated data realism, geometric consistency, temporal consistency, and transfe
 
 The intended prediction interface also includes image and webcam inputs. A complete standalone prediction workflow remains unfinished.
 
-[Research plan and proposed architecture](docs/research-plan.md)
+[Research plan and proposed architecture](../research-plan.md)
 
 ## Source layout
 
@@ -95,7 +95,7 @@ The intended prediction interface also includes image and webcam inputs. A compl
 
 ## Working with the snapshot
 
-Read [development notes](docs/development.md) before attempting to run it. The historical `requirements.txt` is incomplete and conflicts with some versions in the UI bootstrap. A working environment has not been reconstructed or tested here.
+Read [development notes](../development.md) before attempting to run it. The historical `requirements.txt` is incomplete and conflicts with some versions in the UI bootstrap. A working environment has not been reconstructed or tested here.
 
 Known blockers include a missing `train.py` called by the UI, different configuration paths between the UI and training scripts, inconsistent CARLA versions, and saved test tensors that are not distributed. Python syntax checks pass, but they do not verify imports or runtime behavior.
 
@@ -103,4 +103,4 @@ Generated caches, duplicate scripts, disconnected legacy modules, notebooks, and
 
 ## License
 
-[MIT](LICENSE). Existing CARLA copyright and license notices remain in the navigation code.
+[MIT](../../LICENSE). Existing CARLA copyright and license notices remain in the navigation code.

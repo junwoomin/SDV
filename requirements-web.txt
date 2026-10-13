@@ -1,21 +1,2 @@
-# Web console only. Never install or upgrade CARLA/CUDA/PyTorch here.
-# Python 3.7–3.9 use the compatible ASGI stack; newer Python keeps the
-# previously validated stack. pip evaluates these markers automatically.
-fastapi==0.103.2; python_version < "3.10"
-starlette==0.27.0; python_version < "3.10"
-pydantic==1.10.13; python_version < "3.10"
-uvicorn==0.22.0; python_version < "3.10"
-anyio==3.7.1; python_version < "3.10"
-psutil==5.9.8; python_version < "3.10"
-PyYAML==6.0.1; python_version < "3.10"
-Pillow==9.5.0; python_version < "3.10"
-fastapi==0.142.4; python_version >= "3.10"
-uvicorn==0.54.0; python_version >= "3.10"
-psutil==7.2.2; python_version >= "3.10"
-PyYAML>=6.0,<7; python_version >= "3.10"
-Pillow>=10.0,<13; python_version >= "3.10"
-# Actual semantic/depth/box inspection; web never imports research PyTorch.
-numpy==1.21.6; python_version < "3.8"
-numpy==1.24.4; python_version >= "3.8" and python_version < "3.9"
-numpy==1.26.4; python_version >= "3.9" and python_version < "3.10"
-numpy>=1.26,<3; python_version >= "3.10"
+# Compatibility include. Canonical dependencies: requirements/web.txt
+-r requirements/web.txt

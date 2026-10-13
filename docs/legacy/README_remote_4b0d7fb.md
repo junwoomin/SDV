@@ -1,8 +1,8 @@
-![SDV multimodal data preview](docs/images/data-preview.png)
+![SDV multimodal data preview](../images/data-preview.png)
 
 # SDV
 
-[한국어](docs/README_ko.md)
+[한국어](../README_ko.md)
 
 SDV is a prototype of an autonomous-driving research platform, initiated at the suggestion of a senior principal researcher during my time at KETI and developed independently over approximately three months. **During development, the basic configuration → data collection → model training → result inspection workflow was implemented and run.** The desktop UI covered CARLA sensor configuration, multimodal data collection, model configuration, training, and result inspection to make perception experiments easier to set up and compare.
 
@@ -41,17 +41,17 @@ The limitations below concern execution paths and reproducibility of the current
 
 ### Sensor configuration
 
-![Sensor placement and camera preview](docs/images/sensor-settings.png)
+![Sensor placement and camera preview](../images/sensor-settings.png)
 
 ### Model and training configuration
 
-![Training parameters](docs/images/training-config.png)
+![Training parameters](../images/training-config.png)
 
-![Experiment queue](docs/images/training-queue.png)
+![Experiment queue](../images/training-queue.png)
 
 ### Training inspection
 
-![BEV predictions during a previous training session](docs/images/training-preview.png)
+![BEV predictions during a previous training session](../images/training-preview.png)
 
 ## Planned research
 
@@ -71,7 +71,7 @@ Generated data realism, geometric consistency, temporal consistency, and transfe
 
 The intended prediction interface also includes image and webcam inputs. A complete standalone prediction workflow remains unfinished.
 
-[Research plan and proposed architecture](docs/research-plan.md)
+[Research plan and proposed architecture](../research-plan.md)
 
 ## Source layout
 
@@ -89,7 +89,7 @@ The intended prediction interface also includes image and webcam inputs. A compl
 
 ## Working with the snapshot
 
-Read [development notes](docs/development.md) before attempting to run it. The historical `requirements.txt` is incomplete and conflicts with some versions in the UI bootstrap. A working environment has not been reconstructed or tested here.
+Read [development notes](../development.md) before attempting to run it. The historical `requirements.txt` is incomplete and conflicts with some versions in the UI bootstrap. A working environment has not been reconstructed or tested here.
 
 Known blockers include a missing `train.py` called by the UI, different configuration paths between the UI and training scripts, inconsistent CARLA versions, and saved test tensors that are not distributed. Python syntax checks pass, but they do not verify imports or runtime behavior.
 
@@ -97,4 +97,4 @@ Generated caches, duplicate scripts, disconnected legacy modules, notebooks, and
 
 ## License
 
-[MIT](LICENSE). Existing CARLA copyright and license notices remain in the navigation code.
+[MIT](../../LICENSE). Existing CARLA copyright and license notices remain in the navigation code.

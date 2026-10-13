@@ -1,4 +1,4 @@
-> 이 파일은 제공된 원본의 과거 진행 기록입니다. 이번 SDV Studio 구현 및 검증은 [새 검증 보고서](docs/VALIDATION_KO.md)와 [변경 내역](docs/CHANGES_KO.md)를 확인하세요.
+> 이 파일은 제공된 원본의 과거 진행 기록입니다. 이번 SDV Studio 구현 및 검증은 [새 검증 보고서](../VALIDATION_KO.md)와 [변경 내역](../CHANGES_KO.md)를 확인하세요.
 
 # SDV 실행·UI 개선 진행 기록
 

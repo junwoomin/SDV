@@ -95,7 +95,7 @@ Schema 4의 별도 체크포인트 처리 계약을 추가했으며, 기존 sche
 
 ## 실제 이미지와 검증 결과
 
-![같은 World Pose와 40m 영역의 5/10 PPM 비교](validation/global-map-direct-crop-comparison.png)
+같은 World Pose와 40m 영역의 5/10 PPM 비교 (local-only artifact: `validation/global-map-direct-crop-comparison.png`; not distributed / 로컬 검증 자료·미배포)
 
 Town04 상·하부와 Town05 경사로, 5/10 PPM, Yaw 0/90/180/270°에서 DAS/Lane/Boundary **72건 모두 원본 LRS Affine 결과와 픽셀 차이 0**이었다. 비교 그림은 각각 200×200 / 400×400 원본 해상도로 같은 40×40 m를 나타낸다. 실제 제공 지도와 native 좌표를 사용한 정적 출력이며 새 CARLA 주행 화면이나 모델 Prediction은 아니다.
 
@@ -114,7 +114,7 @@ Chromium에서 설정 저장·새로고침, 5→10 PPM의 물리 범위 유지, 
 | CPU Torch 모델·학습 회귀 | 152 | 0 | 0 |
 | CPU Torch schema 4 학습 연결 | 15 | 0 | 0 |
 
-전체 Python의 3.7 문법, JavaScript와 Bash 문법 및 Python 3.7 지도 catalog CLI도 확인했다. 이번 변경을 Python 3.8/3.9/3.10에서 각각 재실행한 것은 아니다. 최종 테스트 수와 실행 환경의 원본은 [자동화 검사 요약](validation/global-map-test-summary.json)에 있다. 세부 원본은 다음 파일에 기록했다.
+전체 Python의 3.7 문법, JavaScript와 Bash 문법 및 Python 3.7 지도 catalog CLI도 확인했다. 이번 변경을 Python 3.8/3.9/3.10에서 각각 재실행한 것은 아니다. 최종 테스트 수와 실행 환경의 원본은 자동화 검사 요약 (local-only artifact: `validation/global-map-test-summary.json`; not distributed / 로컬 검증 자료·미배포)에 있다. 세부 원본은 다음 파일에 기록했다.
 
 - `validation/global-map-source-verification.json`: 전체 원본·PPM·좌표·72 Crop·성능·소스 해시
 - `validation/global-map-real-training-validation.json`: 실제 PNG의 학습 8조합

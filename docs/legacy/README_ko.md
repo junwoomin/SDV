@@ -1,8 +1,8 @@
-> 창·글자 개선: 전체 화면 확대를 제거하고 실제 창 해상도에 한글을 직접 그립니다. [이번 UI 검증·미실행 범위](docs/qa/ui-responsive-20261006/REPORT.md).
+> 창·글자 개선: 전체 화면 확대를 제거하고 실제 창 해상도에 한글을 직접 그립니다. 이번 UI 검증·미실행 범위 (local-only artifact: `docs/qa/ui-responsive-20261006/REPORT.md`; not distributed / 로컬 검증 자료·미배포).
 
-> 2026-10-06 구조 정리: 구현은 `sdv/ui·config·runtime·collection·training` 아래에 묶었습니다. 기존 실행 명령은 유지합니다. [파일 구조·테스트·복구법](docs/layout.md). 새 버전 검증은 docs/qa/refactor-20261006에 별도로 기록합니다.
+> 2026-10-06 구조 정리: 구현은 `sdv/ui·config·runtime·collection·training` 아래에 묶었습니다. 기존 실행 명령은 유지합니다. 파일 구조·테스트·복구법 (local-only artifact: `docs/layout.md`; not distributed / 로컬 검증 자료·미배포). 새 버전 검증은 docs/qa/refactor-20261006에 별도로 기록합니다.
 
-> 2026-10-06: 기본 수집 수 문자열에 의한 대기열 TypeError와 actor 정리 순서를 수정했습니다. [재현·검증 기록](docs/qa/bugfix-20261006/REPORT.md). 기존 설정 파일을 지우거나 aa를 다시 설치할 필요 없이 ./start.sh로 다시 실행하세요.
+> 2026-10-06: 기본 수집 수 문자열에 의한 대기열 TypeError와 actor 정리 순서를 수정했습니다. 재현·검증 기록 (local-only artifact: `docs/qa/bugfix-20261006/REPORT.md`; not distributed / 로컬 검증 자료·미배포). 기존 설정 파일을 지우거나 aa를 다시 설치할 필요 없이 ./start.sh로 다시 실행하세요.
 
 # SDV_V1 실행 안내 · 2026-10-06
 
@@ -64,7 +64,7 @@ Low 옵션은 [CARLA 0.9.15 공식 파서](https://github.com/carla-simulator/ca
 
 ## 검증 범위와 학습 준비
 
-실제 X11 창, CARLA 0.9.15 연결·카메라 수신, 선택 Town01, 별도 시험 폴더의 RGB 3장/info 3개 저장·정상 종료를 확인했습니다. 시험 경로는 `data/qa_collection/20261005_144844/`이며 학습 분할로 사용하지 않았습니다. 증거는 [검증 기록](docs/qa/EVIDENCE.md), [진행 기록](PROGRESS.md), `docs/qa/*.png`에 있습니다.
+실제 X11 창, CARLA 0.9.15 연결·카메라 수신, 선택 Town01, 별도 시험 폴더의 RGB 3장/info 3개 저장·정상 종료를 확인했습니다. 시험 경로는 `data/qa_collection/20261005_144844/`이며 학습 분할로 사용하지 않았습니다. 증거는 검증 기록 (local-only artifact: `docs/qa/EVIDENCE.md`; not distributed / 로컬 검증 자료·미배포), [진행 기록](PROGRESS.md), `docs/qa/*.png`에 있습니다.
 
 현재 실제 학습은 `data/train`, `data/val`, 호환 `img/test.pth`, 선택 인코더의 로컬 사전학습 가중치가 없어 차단됩니다. 자료를 임의로 만들거나 자동 모델 다운로드하지 않습니다. 세 시험 이미지를 학습·검증 데이터로 재활용하지 않았습니다. 모델 전체 텐서 호환성, 학습/예측 성능과 결과 시각화의 모든 태스크 조합은 미검증입니다.
 
@@ -82,7 +82,7 @@ SDL_VIDEODRIVER=dummy .venv/bin/python -B tests/ui_scenarios.py
 
 아래는 기존 README 내용입니다. 개발 당시 결과와 이번 로컬 검증 범위를 구분해서 읽어 주세요. 실행 방법과 현재 한계는 위 안내를 우선합니다.
 
-![SDV 멀티모달 데이터 미리보기](docs/images/data-preview.png)
+![SDV 멀티모달 데이터 미리보기](../images/data-preview.png)
 
 # SDV
 
@@ -123,17 +123,17 @@ KETI 재직 당시 수석 연구원의 제안으로 시작해 약 3개월간 단
 
 ### 센서 설정
 
-![센서 배치와 카메라 미리보기](docs/images/sensor-settings.png)
+![센서 배치와 카메라 미리보기](../images/sensor-settings.png)
 
 ### 모델·학습 설정
 
-![학습 파라미터](docs/images/training-config.png)
+![학습 파라미터](../images/training-config.png)
 
-![실험 대기열](docs/images/training-queue.png)
+![실험 대기열](../images/training-queue.png)
 
 ### 학습 과정 확인
 
-![이전 실험의 BEV 예측 화면](docs/images/training-preview.png)
+![이전 실험의 BEV 예측 화면](../images/training-preview.png)
 
 ## 추후 연구 계획
 
@@ -153,7 +153,7 @@ CARLA 실험 UI에서 출발해 시뮬레이션, 합성 데이터, 평가, 배�
 
 이미지와 웹캠 입력으로 예측을 확인하는 인터페이스도 구상에 포함됩니다. 독립적인 예측 실행 흐름은 아직 완성되지 않았습니다.
 
-[연구 계획과 제안 구조](docs/research-plan_ko.md)
+[연구 계획과 제안 구조](../research-plan_ko.md)
 
 ## 코드 구성
 
@@ -173,7 +173,7 @@ CARLA 실험 UI에서 출발해 시뮬레이션, 합성 데이터, 평가, 배�
 
 아래 내용은 가져온 공개 원본의 제한 사항입니다. 현재 SDV_V1에서는 누락된 호환 진입점과 경로·설정 오류를 수정했고, 로컬 UI/짧은 CARLA 수집의 검증과 아직 수행하지 않은 실제 학습을 위 안내 및 PROGRESS.md에 구분해 기록했습니다.
 
-[개발 메모](docs/development_ko.md)를 먼저 확인하세요. 기존 `requirements.txt`에는 누락된 의존성이 있고 UI의 자동 설치 버전과도 다릅니다. 동작하는 환경을 재구성하거나 실행 검증을 마친 버전이 아닙니다.
+[개발 메모](../development_ko.md)를 먼저 확인하세요. 기존 `requirements.txt`에는 누락된 의존성이 있고 UI의 자동 설치 버전과도 다릅니다. 동작하는 환경을 재구성하거나 실행 검증을 마친 버전이 아닙니다.
 
 확인된 문제에는 UI가 호출하는 `train.py` 누락, UI·학습 스크립트의 설정 경로 불일치, CARLA 버전 불일치, 공개 대상에서 제외한 저장 테스트 텐서가 있습니다. Python 문법 검사는 통과했지만 import와 실제 실행을 검증한 것은 아닙니다.
 
@@ -181,4 +181,4 @@ CARLA 실험 UI에서 출발해 시뮬레이션, 합성 데이터, 평가, 배�
 
 ## 라이선스
 
-[MIT](LICENSE). 내비게이션 코드에 있는 CARLA 저작권·라이선스 표기를 유지합니다.
+[MIT](../../LICENSE). 내비게이션 코드에 있는 CARLA 저작권·라이선스 표기를 유지합니다.

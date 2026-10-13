@@ -101,9 +101,9 @@ python -m sdv.bev inspect .runtime/bev/Town04/CACHE_HASH
 
 ## 검증 기록
 
-최종 자동화 결과와 측정 환경은 [BEV 검증 결과](BEV_VALIDATION_KO.md), 원자료 JSON은 `docs/validation/`에서 확인한다. [LRS 실제 지도 비교 이미지](validation/bev-lrs-actual-comparison.png)는 원본 crop과 새 crop을 같은 Pose에서 비교한 것이다. 지도 자체의 paint 정답 정확도를 뜻하지 않는다.
+최종 자동화 결과와 측정 환경은 [BEV 검증 결과](BEV_VALIDATION_KO.md), 원자료 JSON은 `docs/validation/`에서 확인한다. LRS 실제 지도 비교 이미지 (local-only artifact: `validation/bev-lrs-actual-comparison.png`; not distributed / 로컬 검증 자료·미배포)는 원본 crop과 새 crop을 같은 Pose에서 비교한 것이다. 지도 자체의 paint 정답 정확도를 뜻하지 않는다.
 
-[Town04 동일 XY의 상·하부 도로 비교](validation/bev-town04-overpass-reference-comparison.png)는 LRS 원본, HBLR 연결 원본, 새 SDV 정적 정답과 도로 높이를 함께 보여 준다. 실제 OpenDRIVE와 제공 지도에서 생성했으며, 실제 RGB 수집 화면이나 학습 Prediction이 아니다.
+Town04 동일 XY의 상·하부 도로 비교 (local-only artifact: `validation/bev-town04-overpass-reference-comparison.png`; not distributed / 로컬 검증 자료·미배포)는 LRS 원본, HBLR 연결 원본, 새 SDV 정적 정답과 도로 높이를 함께 보여 준다. 실제 OpenDRIVE와 제공 지도에서 생성했으며, 실제 RGB 수집 화면이나 학습 Prediction이 아니다.
 
 수정 파일 전체와 기준 v8 대비 SHA-256은 `BEV_CHANGED_FILES.json`에 기록한다. 핵심 파일은 `sdv/bev/`, `sdv/collection/bev_adapter.py`, collection workflow/map 초기화, training data/loss/predictions/checkpointing, `studio/bev_preview.py`, sequence/catalog/dataset 준비·품질·planning, config/jobs 및 정적 웹 UI다.
 

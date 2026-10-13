@@ -55,7 +55,7 @@ FTaskThreadAnyThread::ProcessTasks
 
 실패는 Low 품질의 Landscape/Texture 비동기 작업 경로에 수렴한다. 스택의 비정상 실행 주소는 내부 객체/리소스 수명 또는 경쟁 문제 가능성을 시사하지만, 해제 후 참조 같은 정확한 메모리 결함 유형은 확정하지 않았다. NVIDIA 드라이버 함수나 Vulkan OOM 반환값에서 최초 실패한 증거는 없다. `Texture2D sampler` warning, `g.TimeoutForBlockOnRenderFence`, `Malloc Size=65538`를 원인이나 VRAM 부족으로 단정하지 않았다.
 
-배포본은 상세 Saved/Logs/Crash 파일을 생성하지 않았고 `-Abslog`만으로 상세 스택을 얻지 못했다. stdout의 `engine.log`와 GDB 원문을 보존했다. [GDB 최초 스택](validation/carla_stability_20261012/gdb_crash/backtrace.log), [Low 단독 분리 시험](validation/carla_stability_20261012/C_isolated/result.json), [2×2 로그](validation/carla_stability_20261012/engine_comparison/)를 참조한다.
+배포본은 상세 Saved/Logs/Crash 파일을 생성하지 않았고 `-Abslog`만으로 상세 스택을 얻지 못했다. stdout의 `engine.log`와 GDB 원문을 보존했다. GDB 최초 스택 (local-only artifact: `validation/carla_stability_20261012/gdb_crash/backtrace.log`; not distributed / 로컬 검증 자료·미배포), Low 단독 분리 시험 (local-only artifact: `validation/carla_stability_20261012/C_isolated/result.json`; not distributed / 로컬 검증 자료·미배포), 2×2 로그 (local-only artifact: `validation/carla_stability_20261012/engine_comparison/`; not distributed / 로컬 검증 자료·미배포)를 참조한다.
 
 CARLA 공식 저장소의 [#7675](https://github.com/carla-simulator/carla/issues/7675)에도 Low+Off-screen 실패 보고가 있지만 확정된 원인 진단은 없다. 이번 장비에서는 Low 단독도 실패했으므로 그 보고를 그대로 원인으로 적용하지 않았다. [공식 0.9.15 렌더링 문서](https://carla.readthedocs.io/en/0.9.15/adv_rendering_options/)에 따라 Vulkan과 GPU 센서 렌더링을 유지했다.
 
@@ -81,7 +81,7 @@ CARLA 공식 저장소의 [#7675](https://github.com/carla-simulator/carla/issue
 
 렌더링 품질 변경은 이미지 도메인에 영향을 주므로 `collection_manifest.json`의 `rendering.profile`에 남긴다. 프로파일 변경은 다음 엔진 실행에만 적용되며 실행 중 job의 설정 사본을 바꾸지 않는다.
 
-23개 변경 파일의 해시 및 백업은 [최종 목록](validation/carla_stability_20261012/changed_files_final.json)에 있다. 원본 백업: `.runtime/backups/carla_stability_20261012_145612/`. 드라이버·커널·시스템 패키지·기존 ML 환경·기존 CARLA 배포는 변경하지 않았다. Git push/PR 및 컴퓨터 전원 종료도 수행하지 않았다.
+23개 변경 파일의 해시 및 백업은 최종 목록 (local-only artifact: `validation/carla_stability_20261012/changed_files_final.json`; not distributed / 로컬 검증 자료·미배포)에 있다. 원본 백업: `.runtime/backups/carla_stability_20261012_145612/`. 드라이버·커널·시스템 패키지·기존 ML 환경·기존 CARLA 배포는 변경하지 않았다. Git push/PR 및 컴퓨터 전원 종료도 수행하지 않았다.
 
 ## C. 실행 검증 결과
 
@@ -105,7 +105,7 @@ CARLA 공식 저장소의 [#7675](https://github.com/carla-simulator/carla/issue
 
 장시간 수집의 첫 저장~종료 요청: **2026-10-12 05:44:15.300~05:54:28.552 UTC**. 전체 job 시간은 약 620초이며 정상 중지 후 저장 샘플을 유지했다. 해당 결과를 `data/collections/validation_soak_dacc112eff5e48b0/`에 복사했고 원본 Codex 작업 폴더도 보존했다. 실제 Town05 및 제어 시험 데이터는 `data/collections/collection_<job id>/`에 있다.
 
-진단·실행 명령·환경·센서 감사·GPU/수집/학습 감시·최종 테스트 로그는 `docs/validation/carla_stability_20261012/`에 보존했다. [장시간 결과](validation/carla_stability_20261012/soak-final.json), [Town05 결과](validation/carla_stability_20261012/town05-final.json), [CUDA 학습 결과](validation/carla_stability_20261012/training-final.json), [전체 테스트 로그](validation/carla_stability_20261012/final-all-828.log)를 참조한다.
+진단·실행 명령·환경·센서 감사·GPU/수집/학습 감시·최종 테스트 로그는 `docs/validation/carla_stability_20261012/`에 보존했다. 장시간 결과 (local-only artifact: `validation/carla_stability_20261012/soak-final.json`; not distributed / 로컬 검증 자료·미배포), Town05 결과 (local-only artifact: `validation/carla_stability_20261012/town05-final.json`; not distributed / 로컬 검증 자료·미배포), CUDA 학습 결과 (local-only artifact: `validation/carla_stability_20261012/training-final.json`; not distributed / 로컬 검증 자료·미배포), 전체 테스트 로그 (local-only artifact: `validation/carla_stability_20261012/final-all-828.log`; not distributed / 로컬 검증 자료·미배포)를 참조한다.
 
 ## 남은 한계와 사용
 

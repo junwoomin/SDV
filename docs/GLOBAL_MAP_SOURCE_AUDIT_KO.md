@@ -81,11 +81,11 @@ Road37 전체를 항상 high로 분류해서도 안 된다. 도로가 지상에�
 - height source는 첨부 기준 `null`; native Actor ground Z와 dense image height를 구분한다.
 - PNG마다 고정 label source를 기록하고, 실행 중에는 설정 snapshot과 원본 파일 hash를 고정한다.
 
-전체 이미지 header·hash·histogram, PPM 후보별 실제 좌표 검사, Town05 경사로 표본은 [global-map-source-verification.json](validation/global-map-source-verification.json)에 저장했다. 실제 CARLA 서버의 RGB/Actor 동기화, 모든 PNG의 독립 GT 정확성은 이번 소스 조사에서 검증하지 않았다.
+전체 이미지 header·hash·histogram, PPM 후보별 실제 좌표 검사, Town05 경사로 표본은 global-map-source-verification.json (local-only artifact: `validation/global-map-source-verification.json`; not distributed / 로컬 검증 자료·미배포)에 저장했다. 실제 CARLA 서버의 RGB/Actor 동기화, 모든 PNG의 독립 GT 정확성은 이번 소스 조사에서 검증하지 않았다.
 
 ## 실제 production crop 및 실행 시간 검증
 
-![동일 영역의 5/10 PPM 직접 crop](validation/global-map-direct-crop-comparison.png)
+동일 영역의 5/10 PPM 직접 crop (local-only artifact: `validation/global-map-direct-crop-comparison.png`; not distributed / 로컬 검증 자료·미배포)
 
 새 production `GlobalMapBEVGenerator`를 실제 첨부 PNG로 실행했다. Town04 하부·상부와 Town05 경사로의 실제 확인된 위치에서 yaw 0/90/180/270°를 각각 조회했다. 5 PPM은 200×200, 10 PPM은 400×400으로 **둘 다 같은 40×40 m 영역**이다. 원본 LRS `make_local_bev_ego_aligned` 함수를 같은 이미지·pose에 실행한 DAS/Lane/Boundary **72건에서 픽셀 차이 0**을 확인했다. 기록된 좌표 변환 행렬의 ego anchor 위치 오차는 최대 `3.411e-14 m`였다. Catalog의 14개 Town/해상도 variant도 원본 hash 검사를 통과했다.
 

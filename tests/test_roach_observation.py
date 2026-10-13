@@ -3,9 +3,9 @@ import importlib.util
 from pathlib import Path
 from types import SimpleNamespace
 
-import cv2
-import numpy as np
 import pytest
+cv2 = pytest.importorskip("cv2", reason="Roach observation parity requires research OpenCV")
+import numpy as np
 
 from sdv.driving.observation import (
     RoachObservationAdapter, ObservationError, vehicle_state, contract,

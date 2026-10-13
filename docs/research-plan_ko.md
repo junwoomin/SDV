@@ -1,6 +1,6 @@
 # SDV 연구 계획
 
-[English](research-plan.md) · [프로젝트 소개](README_ko.md)
+[English](research-plan.md) · [프로젝트 소개](legacy/README_desktop_original_KO.md)
 
 SDV는 센서 설정, 데이터 생성, 모델 선택, 실험 결과 확인을 연결하는 그래픽 UI에서 출발했습니다. 장기적으로는 시뮬레이션·인지 연구·추론 배포에 함께 사용할 수 있는 연구 환경을 목표로 합니다.
 

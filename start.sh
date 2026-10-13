@@ -32,13 +32,13 @@ if [[ ! -x "$sdv_web_env/bin/python" ]]; then
   "$sdv_python" -m venv "$sdv_web_env" || { echo '가상환경 생성 실패: 선택한 Python의 venv/ensurepip 설치 여부를 확인하세요.' >&2; exit 1; }
 fi
 sdv_web_python="$sdv_web_env/bin/python"
-sdv_dependencies_key="$("$sdv_web_python" -c 'import hashlib, sys; print("{}.{}:{}".format(*sys.version_info[:2], hashlib.sha256(open("requirements-web.txt", "rb").read()).hexdigest()))')"
+sdv_dependencies_key="$("$sdv_web_python" -c 'import hashlib, sys; print("{}.{}:{}".format(*sys.version_info[:2], hashlib.sha256(open("requirements/web.txt", "rb").read()).hexdigest()))')"
 sdv_installed_key="$(cat "$sdv_web_env/.sdv-requirements" 2>/dev/null || true)"
 if [[ "$sdv_installed_key" != "$sdv_dependencies_key" ]] || ! "$sdv_web_python" -c 'import fastapi, uvicorn, psutil, yaml, numpy; from PIL import Image' >/dev/null 2>&1; then
   echo '웹 관리용 의존성을 설치합니다. 기존 CUDA/CARLA 환경은 설정에서 연결하세요.'
   # pip 24.0 is the last pip for Python 3.7; upgrade only inside the web venv.
   "$sdv_web_python" -m pip install --upgrade 'pip>=23.2,<24.1; python_version < "3.8"' 'pip>=23.2; python_version >= "3.8"' || { echo '웹 가상환경의 pip 준비 실패: 네트워크 또는 pip 설정을 확인하세요.' >&2; exit 1; }
-  "$sdv_web_python" -m pip install -r requirements-web.txt || { echo '의존성 설치 실패: 네트워크 또는 pip 설정을 확인하세요.' >&2; exit 1; }
+  "$sdv_web_python" -m pip install -r requirements/web.txt || { echo '의존성 설치 실패: 네트워크 또는 pip 설정을 확인하세요.' >&2; exit 1; }
   printf '%s\n' "$sdv_dependencies_key" > "$sdv_web_env/.sdv-requirements"
 fi
 echo "SDV Studio · Python $sdv_python_version · $(basename "$sdv_web_env")"

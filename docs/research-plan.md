@@ -1,6 +1,6 @@
 # SDV research plan
 
-[한국어](research-plan_ko.md) · [Project overview](../README.md)
+[한국어](research-plan_ko.md) · [Project overview](legacy/README_before_cleanup_EN.md)
 
 SDV starts from a graphical workflow for configuring sensors, generating data, choosing model components, and reviewing experiments. The longer-term goal is to make this workspace usable across simulation, perception research, and inference deployment.
 

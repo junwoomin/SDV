@@ -41,7 +41,7 @@ Bi-FPN의 bottom-up 마지막 fusion에서도 stride16과 stride32 텐서를 함
 
 실제 CPU 환경 Python3.10 / torch2.2.2 / torchvision0.17.2에서 11 인코더 ID × 3 이미지 디코더 33조합, Seg/Depth/OD 통합, BEV 3종, 원본 체크포인트 호환 등 **46개 검사**를 통과했습니다. 공식 ResNet34·기존 EfficientNet-B0·MobileNetV3 Small 파일은 실제 로딩·forward까지 확인했습니다. 다른 신규 가중치는 임의 초기화 계약만 검사했으며, CUDA 전체 Epoch 학습·수렴·실제 데이터셋 품질·LiDAR/torch_scatter·BEV train-mode normalization은 미검증입니다.
 
-상세 기록: [실제 모델 검사](model-contract-validation.json), [웹 회귀](model-regression-validation.json), [브라우저 검사](model-ux-browser-validation.json).
+상세 기록: 실제 모델 검사 (local-only artifact: `model-contract-validation.json`; not distributed / 로컬 검증 자료·미배포), 웹 회귀 (local-only artifact: `model-regression-validation.json`; not distributed / 로컬 검증 자료·미배포), 브라우저 검사 (local-only artifact: `model-ux-browser-validation.json`; not distributed / 로컬 검증 자료·미배포).
 
 ## 태스크별 클래스·거리 설정과 최신 CPU 검사
 

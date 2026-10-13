@@ -44,7 +44,7 @@
 
 선형 RGB Resize는 같은 샘플에서 팔레트에 없는 중간색 **2,848픽셀**을 만들었다. 수정 방식은 원본 RGB에서 정수 ID를 먼저 복원하고 Nearest Neighbor로 Resize한 다음 선택된 클래스를 출력 채널로 매핑한다. 같은 샘플의 Nearest 결과에서 잘못된 ID는 **0개**다. 원본 ID 0은 1픽셀뿐이므로 축소 후 사라지는 것은 정상적인 다운샘플링이며 매핑 오류와 구분한다.
 
-![원본, 기존 Loader, 기존 모니터, 수정된 Semantic 비교](screenshots/audit-seg-before-after.png)
+원본, 기존 Loader, 기존 모니터, 수정된 Semantic 비교 (local-only artifact: `screenshots/audit-seg-before-after.png`; not distributed / 로컬 검증 자료·미배포)
 
 수정 후 **실제 200개 Frame 모두 새 Loader를 실행**했다. 19채널의 출력 ID를 원래 Semantic ID로 복원한 결과가 모든 Frame에서 원본 ID의 Nearest Resize 결과와 정확히 같았다. Ignore 픽셀은 0개였으며, 수정된 모니터 GT 색상도 정확히 일치했다. 선택하지 않은 클래스는 설정에 따라 Ignore(255, Loss/Metric 제외) 또는 Background로 명시적으로 매핑된다. 기존 저장 실험/Checkpoint에는 명시적 legacy 모드를 유지하여 출력 채널을 몰래 바꾸지 않는다. 신규 웹 실험은 실제 발견된 클래스에 기반한 수정된 CARLA 매핑을 쓴다.
 

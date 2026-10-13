@@ -1,0 +1,153 @@
+{
+  "captured": "2026-10-13",
+  "repository": "junwoomin/SDV",
+  "source_revision": "9fb7de2197e91575de818f15f7961ce3f4b05f75",
+  "version_match": "Every 428 tracked source/document/asset files matched /home/wo/SDV before reorganization. UI source unchanged by this candidate.",
+  "source": "Verified continuous browser recording; original clips and execution_evidence.json remain on the owner PC.",
+  "screenshots": [
+    {
+      "file": "settings.png",
+      "source_clip": "clip02",
+      "source_frame": "000035.png",
+      "sha256": "c021d018f95fa57522134d26800a2cebee02b71a69e6db67a07b685fed9c7dc0",
+      "bytes": 93264,
+      "pixels": [
+        1585,
+        892
+      ],
+      "processing": "Unmodified original browser content PNG; no crop, overlays, synthesis or AI editing."
+    },
+    {
+      "file": "collection-settings.png",
+      "source_clip": "clip07",
+      "source_frame": "000015.png",
+      "sha256": "9e7abe1cc6c4061fa647a5934d6df48a4e717a4c339bdef03b44a12f2c7528bc",
+      "bytes": 83238,
+      "pixels": [
+        1585,
+        892
+      ],
+      "processing": "Unmodified original browser content PNG; no crop, overlays, synthesis or AI editing."
+    },
+    {
+      "file": "sensor-settings.png",
+      "source_clip": "clip10",
+      "source_frame": "000054.png",
+      "sha256": "6ed0509d84f50a8e4af1b2c937b31ee1369a31224c9135e7c378888bc7edb349",
+      "bytes": 76076,
+      "pixels": [
+        1585,
+        892
+      ],
+      "processing": "Unmodified original browser content PNG; no crop, overlays, synthesis or AI editing."
+    },
+    {
+      "file": "collection-running.png",
+      "source_clip": "clip12",
+      "source_frame": "000129.png",
+      "sha256": "d141a335a764672714b361dc2c0b8aedcc55fe337405652281f8e61ef1db5e0b",
+      "bytes": 81908,
+      "pixels": [
+        1585,
+        892
+      ],
+      "processing": "Unmodified original browser content PNG; no crop, overlays, synthesis or AI editing."
+    },
+    {
+      "file": "collection-complete.png",
+      "source_clip": "clip13",
+      "source_frame": "000037.png",
+      "sha256": "1589e8350aeda14f01870f50143ffcbb2724352155b95d267476b8036942c424",
+      "bytes": 93019,
+      "pixels": [
+        1585,
+        892
+      ],
+      "processing": "Unmodified original browser content PNG; no crop, overlays, synthesis or AI editing."
+    },
+    {
+      "file": "dataset-split.png",
+      "source_clip": "clip15",
+      "source_frame": "000042.png",
+      "sha256": "d6d8f520aeed7f93fce5696942a6b3edef41712a029d9320d7bbb7ee7cc25fc5",
+      "bytes": 77465,
+      "pixels": [
+        1585,
+        892
+      ],
+      "processing": "Unmodified original browser content PNG; no crop, overlays, synthesis or AI editing."
+    },
+    {
+      "file": "sequence-playback.png",
+      "source_clip": "clip17",
+      "source_frame": "000051.png",
+      "sha256": "7f4e6bcdc2b9f73f8f5123cd5359ae08e4280da36e2160cd36652488ce2f27bb",
+      "bytes": 115622,
+      "pixels": [
+        1585,
+        892
+      ],
+      "processing": "Unmodified original browser content PNG; no crop, overlays, synthesis or AI editing."
+    },
+    {
+      "file": "model-tasks.png",
+      "source_clip": "clip19",
+      "source_frame": "000034.png",
+      "sha256": "c14e78dcc734a17008ec557af51eb2e9a7404d944311eb11f7efb8ba87fc4f74",
+      "bytes": 85660,
+      "pixels": [
+        1585,
+        892
+      ],
+      "processing": "Unmodified original browser content PNG; no crop, overlays, synthesis or AI editing."
+    },
+    {
+      "file": "training-config.png",
+      "source_clip": "clip21",
+      "source_frame": "000070.png",
+      "sha256": "2467a270a78cf8cea7fc14aa820637adad8a55867fe93cd2af7fc9f57490c1ae",
+      "bytes": 86482,
+      "pixels": [
+        1585,
+        892
+      ],
+      "processing": "Unmodified original browser content PNG; no crop, overlays, synthesis or AI editing."
+    },
+    {
+      "file": "training-monitor.png",
+      "source_clip": "clip24",
+      "source_frame": "000038.png",
+      "sha256": "ae77657899bcfcb352693516b38d820c13c991a8c1afc3ad7e90b99e7b7d6ec4",
+      "bytes": 82845,
+      "pixels": [
+        1600,
+        900
+      ],
+      "processing": "Unmodified original browser content PNG; no crop, overlays, synthesis or AI editing."
+    },
+    {
+      "file": "prediction-browser.png",
+      "source_clip": "clip25",
+      "source_frame": "000037.png",
+      "sha256": "fe3e823d8fc9e48dbcd91f63d71dfa24330d946a44130f99895ffaefd5091029",
+      "bytes": 99215,
+      "pixels": [
+        1585,
+        892
+      ],
+      "processing": "Unmodified original browser content PNG; no crop, overlays, synthesis or AI editing."
+    },
+    {
+      "file": "metrics.png",
+      "source_clip": "clip35",
+      "source_frame": "000038.png",
+      "sha256": "367a1315311fd3a1fe4d0bb1c5e4629b1e77a0a4d8478c0d6d590dd8ae9a1a11",
+      "bytes": 82117,
+      "pixels": [
+        1585,
+        892
+      ],
+      "processing": "Unmodified original browser content PNG; no crop, overlays, synthesis or AI editing."
+    }
+  ]
+}

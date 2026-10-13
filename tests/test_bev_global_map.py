@@ -10,6 +10,13 @@ Image = pytest.importorskip("PIL.Image")
 from sdv.bev.global_map import (GlobalMap, GlobalMapCatalog, catalog, default_map_root,
                                 load_global_map)
 
+# These integration tests verify separately supplied native map bytes.
+# A source-only checkout must not fail or fabricate replacement maps.
+pytestmark = pytest.mark.skipif(
+    not (default_map_root() / "catalog.json").is_file(),
+    reason="Native BEV map assets are supplied separately; see docs/SETUP.md",
+)
+
 
 def test_actual_supplied_catalog_has_14_verified_variants_without_array_decode():
     result = catalog()

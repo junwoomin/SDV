@@ -45,13 +45,13 @@ CARLA 0.9.15의 실제 오프라인 `carla.Map`으로 제공 XODR을 읽었다. 
 
 오차는 native waypoint Z와 연속 표면 보간 Z의 차이다. 카메라 정합 오차, raster 픽셀 양자화 오차 또는 도로 전체 면적의 정확도 점수가 아니다. 실제 지도 교차 높이 4곳에서도 상·하부 표면이 각각 선택되었다.
 
-![Town04 동일 XY, 서로 다른 실제 도로 높이 비교](validation/bev-town04-overpass-reference-comparison.png)
+Town04 동일 XY, 서로 다른 실제 도로 높이 비교 (local-only artifact: `validation/bev-town04-overpass-reference-comparison.png`; not distributed / 로컬 검증 자료·미배포)
 
 Town04의 동일 XY에서 Z 0 m / 11 m로 LRS 원본, HBLR 연결 원본, 새 SDV Semantic 및 미터 높이를 비교했다. 위 그림과 숫자 NPZ는 실제 제공 지도·OpenDRIVE를 사용한 정적 출력이며 촬영된 RGB나 모델 Prediction이 아니다. 두 Ego Anchor의 높이 오차는 0 m다. 원본 간 Anchor, 정수화, Semantic 종류가 달라 세 구현 간 IoU를 정확도 점수로 만들지 않았다.
 
 같은 XY에 배치한 통제용 Box 두 개는 아래 view에 ID 100만, 위 view에 ID 101만 포함되었다. 이 Actor 검사는 실제 Map 위의 합성 입력이며 실제 차량 수집 기록이 아니다. 그림과 정적 NPZ에는 이 Box를 넣지 않았다.
 
-실제 지도 검증에서 발견한 시작점 누락, Road/Section 경계, 불연속 native 연결, 중앙 Shoulder 너머 반대 차로 문제를 수정했다. 확인할 수 없는 연결은 제외하고 좌표와 원인을 캐시 `build_report`에 기록한다. 상세 결과·재현 명령·원본 소스 해시는 [실제 지도 검증 보고](validation/BEV_REFERENCE_VALIDATION_KO.md)와 해당 JSON에 있다.
+실제 지도 검증에서 발견한 시작점 누락, Road/Section 경계, 불연속 native 연결, 중앙 Shoulder 너머 반대 차로 문제를 수정했다. 확인할 수 없는 연결은 제외하고 좌표와 원인을 캐시 `build_report`에 기록한다. 상세 결과·재현 명령·원본 소스 해시는 실제 지도 검증 보고 (local-only artifact: `validation/BEV_REFERENCE_VALIDATION_KO.md`; not distributed / 로컬 검증 자료·미배포)와 해당 JSON에 있다.
 
 ## 기존 데이터 및 학습 호환성
 

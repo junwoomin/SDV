@@ -147,8 +147,8 @@ WINDOW_WIDTH, WINDOW_HEIGHT = 1400, 1000  # 창 크기
 
 # 이미지 자산
 
-car_top = pygame.image.load(f"{current_dir}/img/car_top.jpg")  # 차량 상단 이미지
-car_side = pygame.image.load(f"{current_dir}/img/car_side.jpg")  # 차량 측면 이미지
+car_top = pygame.image.load(f"{current_dir}/sdv/ui/assets/car_top.jpg")  # 차량 상단 이미지
+car_side = pygame.image.load(f"{current_dir}/sdv/ui/assets/car_side.jpg")  # 차량 측면 이미지
 CAR_TOP_W = 400                      # 차량 상단 이미지 너비
 CAR_TOP_H = int(car_top.get_height() * CAR_TOP_W / car_top.get_width())  # 차량 상단 이미지 높이
 CAR_SIDE_W = 400                     # 차량 측면 이미지 너비
@@ -1598,13 +1598,13 @@ while running:
             ]
 
             paths = {
-                0: 'img/test_img/rgb_left/test.png',
-                1: 'img/test_img/rgb_front/test.png',
-                2: 'img/test_img/rgb_right/test.png',
-                4: 'img/test_img/rgb_rear/test.png',
-                3: 'img/test_img/rgb_rear_left/test.png',
-                5: 'img/test_img/rgb_rear_right/test.png',
-                7: 'img/test_img/top_view/test.jpg',
+                0: 'legacy/fixtures/test_img/rgb_left/test.png',
+                1: 'legacy/fixtures/test_img/rgb_front/test.png',
+                2: 'legacy/fixtures/test_img/rgb_right/test.png',
+                4: 'legacy/fixtures/test_img/rgb_rear/test.png',
+                3: 'legacy/fixtures/test_img/rgb_rear_left/test.png',
+                5: 'legacy/fixtures/test_img/rgb_rear_right/test.png',
+                7: 'legacy/fixtures/test_img/top_view/test.jpg',
             }
             if not sensor_checkboxes['front_cam']:
                 del paths[1]
@@ -1637,23 +1637,23 @@ while running:
 
             paths = {
             # Segmentation
-            0: 'img/test_img/seg_left/test.png',
-            1: 'img/test_img/seg_front/test.png',
-            2: 'img/test_img/seg_right/test.png',
-            3: 'img/test_img/seg_rear_left/test.png',
-            4: 'img/test_img/seg_rear/test.png',
-            5: 'img/test_img/seg_rear_right/test.png',
+            0: 'legacy/fixtures/test_img/seg_left/test.png',
+            1: 'legacy/fixtures/test_img/seg_front/test.png',
+            2: 'legacy/fixtures/test_img/seg_right/test.png',
+            3: 'legacy/fixtures/test_img/seg_rear_left/test.png',
+            4: 'legacy/fixtures/test_img/seg_rear/test.png',
+            5: 'legacy/fixtures/test_img/seg_rear_right/test.png',
 
             # Depth
-            6: 'img/test_img/depth_left/test.png',
-            7: 'img/test_img/depth_front/test.png',
-            8: 'img/test_img/depth_right/test.png',
-            9: 'img/test_img/depth_rear_left/test.png',
-            10: 'img/test_img/depth_rear/test.png',
-            11: 'img/test_img/depth_rear_right/test.png',
+            6: 'legacy/fixtures/test_img/depth_left/test.png',
+            7: 'legacy/fixtures/test_img/depth_front/test.png',
+            8: 'legacy/fixtures/test_img/depth_right/test.png',
+            9: 'legacy/fixtures/test_img/depth_rear_left/test.png',
+            10: 'legacy/fixtures/test_img/depth_rear/test.png',
+            11: 'legacy/fixtures/test_img/depth_rear_right/test.png',
 
             # BEV
-            13: 'img/test_img/bev_re/test.jpg'
+            13: 'legacy/fixtures/test_img/bev_re/test.jpg'
             }
 
             if not seg_all_checked:
@@ -2235,13 +2235,13 @@ while running:
 
 
             paths = {
-                0: 'img/test_img/rgb_left/test.png',
-                1: 'img/test_img/rgb_front/test.png',
-                2: 'img/test_img/rgb_right/test.png',
-                4: 'img/test_img/rgb_rear/test.png',
-                3: 'img/test_img/rgb_rear_left/test.png',
-                5: 'img/test_img/rgb_rear_right/test.png',
-                7: 'img/test_img/top_view/test.jpg',
+                0: 'legacy/fixtures/test_img/rgb_left/test.png',
+                1: 'legacy/fixtures/test_img/rgb_front/test.png',
+                2: 'legacy/fixtures/test_img/rgb_right/test.png',
+                4: 'legacy/fixtures/test_img/rgb_rear/test.png',
+                3: 'legacy/fixtures/test_img/rgb_rear_left/test.png',
+                5: 'legacy/fixtures/test_img/rgb_rear_right/test.png',
+                7: 'legacy/fixtures/test_img/top_view/test.jpg',
             }
             if Front_cam_color !=BLUE:
                 del paths[1]
@@ -2277,23 +2277,23 @@ while running:
 
             paths = {
             # Segmentation
-            0: 'img/test_img/seg_left/test.png',
-            1: 'img/test_img/seg_front/test.png',
-            2: 'img/test_img/seg_right/test.png',
-            3: 'img/test_img/seg_rear_left/test.png',
-            4: 'img/test_img/seg_rear/test.png',
-            5: 'img/test_img/seg_rear_right/test.png',
+            0: 'legacy/fixtures/test_img/seg_left/test.png',
+            1: 'legacy/fixtures/test_img/seg_front/test.png',
+            2: 'legacy/fixtures/test_img/seg_right/test.png',
+            3: 'legacy/fixtures/test_img/seg_rear_left/test.png',
+            4: 'legacy/fixtures/test_img/seg_rear/test.png',
+            5: 'legacy/fixtures/test_img/seg_rear_right/test.png',
 
             # Depth
-            6: 'img/test_img/depth_left/test.png',
-            7: 'img/test_img/depth_front/test.png',
-            8: 'img/test_img/depth_right/test.png',
-            9: 'img/test_img/depth_rear_left/test.png',
-            10: 'img/test_img/depth_rear/test.png',
-            11: 'img/test_img/depth_rear_right/test.png',
+            6: 'legacy/fixtures/test_img/depth_left/test.png',
+            7: 'legacy/fixtures/test_img/depth_front/test.png',
+            8: 'legacy/fixtures/test_img/depth_right/test.png',
+            9: 'legacy/fixtures/test_img/depth_rear_left/test.png',
+            10: 'legacy/fixtures/test_img/depth_rear/test.png',
+            11: 'legacy/fixtures/test_img/depth_rear_right/test.png',
 
             # BEV
-            13: 'img/test_img/bev_re/test.jpg'
+            13: 'legacy/fixtures/test_img/bev_re/test.jpg'
             }
             all_seg_true = all(
                 sensor_config[name]['seg']

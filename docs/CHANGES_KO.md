@@ -65,7 +65,7 @@ API 연결: `POST /api/training/queue`, `POST /api/training/queue/reorder`, `POS
 - `studio/static/app.js`, `style.css`: 데이터가 없는 입력 센서·태스크를 회색으로 비활성화하고, 필수 조건 미충족을 빨간색으로 안내합니다. BEV를 해제하면 BEV 디코더 선택은 None으로 바뀝니다. `studio/config.py`와 연구 설정 검사도 이를 일치시켜 기존 모델의 비활성 forward 분기를 사용합니다. BEV의 카메라 3개 이상 조건은 유지합니다.
 - `studio/pretrained_service.py`: 사용자가 학습 준비 상태 검사를 요청하면 공통 모델 registry에 등록된 선택 인코더의 공식 사전학습 파일을 백그라운드에서 준비합니다. 공식 파일명 SHA256 접두사를 검증한 뒤 캐시에 원자적으로 공개하고, 검증된 캐시는 재사용합니다. 중복 다운로드를 막고 검증 실패한 기존 파일은 보존합니다. 일반 상태 조회로 다운로드를 시작하지 않습니다.
 - 이전의 수동 가중치 준비 안내를 현재 자동 준비 흐름으로 교체했습니다. 연구 CUDA/PyTorch 패키지, 모델 레이어·손실식·데이터 형식은 이 변경으로 수정하지 않았습니다.
-- 실제 공식 파일 두 종류의 다운로드·SHA256 검증과 Python 3.7 네트워크 차단 상태의 캐시 재사용은 [가중치 검증 기록](pretrained-validation.json)으로 확인했습니다. 모델 역직렬화와 CUDA 학습은 미검증이며 QA 가중치는 배포물에 포함하지 않습니다.
+- 실제 공식 파일 두 종류의 다운로드·SHA256 검증과 Python 3.7 네트워크 차단 상태의 캐시 재사용은 가중치 검증 기록 (local-only artifact: `pretrained-validation.json`; not distributed / 로컬 검증 자료·미배포)으로 확인했습니다. 모델 역직렬화와 CUDA 학습은 미검증이며 QA 가중치는 배포물에 포함하지 않습니다.
 
 ## Python 3.7–3.10 호환 수정
 

@@ -1,0 +1,18 @@
+# Local environments, simulator/assets, generated research records
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv*/
+.runtime/
+data/
+results/
+carla/
+roach/log/
+assets/bev_maps/
+img/test.pt
+img/test.pth
+*.pth
+*.pt
+.env
+.env.*
+!.env.example

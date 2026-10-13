@@ -1,6 +1,6 @@
 import copy
 import pytest
-import torch
+torch = pytest.importorskip("torch", reason="Loss numerics require the separate research environment")
 from sdv.training.loss_config import normalize_losses, loss_defaults
 from sdv.training.losses import build_losses
 from sdv.training.modeling.loss import Dice_BEC_Loss, SimpleLoss, silog_loss

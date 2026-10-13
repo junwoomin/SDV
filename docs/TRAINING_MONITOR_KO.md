@@ -109,7 +109,7 @@ monitor:
 
 실제 CPU Tensor를 사용해 표준 지표 계산, Anchor decode, 실제 SDV ResNet18/FPN 예측 PNG 생성, 고정 표본 선택과 RNG/모델 상태 보존을 검사했습니다. Adam·AdamW·SGD로 Epoch 1 완료 후 프로세스를 새로 구성한 뒤 재개했을 때 연속 실행과 Loss·가중치·LR scheduler·RNG가 정확히 일치하는 것을 확인했습니다. 저장 실패 시 이전 완료 Checkpoint가 남는지도 확인했습니다.
 
-전체 연구 엔진에 대해서도 테스트에서만 `.cuda()` 전송과 CUDA 필수 검사를 CPU로 대체해 실제 Dataset·ResNet18/FPN·Seg/Depth·손실·Adam·StepLR·지표·예측·Checkpoint 경로를 실행했습니다. 생성한 64×64 PNG 표본 각 4개로 2 Epoch 연속 실행과 Epoch 1 일시정지/프로세스 종료/Epoch 2 재개를 비교했고 가중치·전체 태스크 지표·이력이 정확히 일치했습니다. 고정 VAL 4개, 누적 Prediction 48개, TRAIN 간격 0 비활성화도 확인했습니다. 이는 합성 QA 표본의 코드 연결 검증이며 연구 데이터의 인지 성능 측정은 아닙니다. [CPU 엔진 검증 기록](training-engine-cpu-validation.json)에 명시적인 CPU 대체 범위를 기록했습니다.
+전체 연구 엔진에 대해서도 테스트에서만 `.cuda()` 전송과 CUDA 필수 검사를 CPU로 대체해 실제 Dataset·ResNet18/FPN·Seg/Depth·손실·Adam·StepLR·지표·예측·Checkpoint 경로를 실행했습니다. 생성한 64×64 PNG 표본 각 4개로 2 Epoch 연속 실행과 Epoch 1 일시정지/프로세스 종료/Epoch 2 재개를 비교했고 가중치·전체 태스크 지표·이력이 정확히 일치했습니다. 고정 VAL 4개, 누적 Prediction 48개, TRAIN 간격 0 비활성화도 확인했습니다. 이는 합성 QA 표본의 코드 연결 검증이며 연구 데이터의 인지 성능 측정은 아닙니다. CPU 엔진 검증 기록 (local-only artifact: `training-engine-cpu-validation.json`; not distributed / 로컬 검증 자료·미배포)에 명시적인 CPU 대체 범위를 기록했습니다.
 
 이 검사에서 기존 collater가 Depth 유효 마스크를 float32로 바꾸어 원래 `silog_loss`의 Tensor 인덱싱이 실패하는 오류를 발견했습니다. 마스크의 bool 자료형을 보존하도록 수정했고 실제 원래 Loss의 forward/backward 회귀 검사를 추가했습니다. Loss 공식은 변경하지 않았습니다.
 

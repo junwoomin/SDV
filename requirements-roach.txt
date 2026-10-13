@@ -1,17 +1,2 @@
-# Dedicated Roach + CARLA collection environment: use Python 3.10.
-# The legacy Python 3.7 research environment cannot load this runtime.
-# Install a CPU/CUDA PyTorch wheel suitable for the machine before this file.
-torch>=2.6
-numpy>=1.26,<3
-gym==0.26.2
-opencv-python-headless>=4.8
-PyYAML>=6
-pygame>=2.6,<3
-networkx>=2.8,<4
-Pillow>=10,<13
-scipy>=1.10,<2
-shapely>=2,<3
-# CARLA wheel must match the actual server (0.9.15 for the bundled collector).
-# Python 3.10 is the supported full collector environment. CPU-only policy
-# tests can run on 3.12, but that does not validate a CARLA Python API/server.
-carla==0.9.15; python_version == "3.10"
+# Compatibility include. Canonical dependencies: requirements/roach.txt
+-r requirements/roach.txt

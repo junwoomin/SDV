@@ -11,16 +11,17 @@
 - `roach/log/ckpt_11833344.pth`: 기존 로컬 Roach policy. 라이선스와 출처를
   확인한 자신의 checkpoint를 같은 경로에 놓거나 Settings에 프로젝트 안의 checkpoint 경로를 지정한다.
   없으면 CARLA 준비/수집 검사가 실제 누락 사유를 표시한다.
-- `assets/bev_maps/data5`, `data10`: 기존 제공 Town PNG 지도를 프로젝트의
+- `assets/bev_maps/catalog.json`, `data5`, `data10`: 기존 제공 Town PNG 지도를 프로젝트의
   같은 경로에 배치하거나 BEV Map Root를 프로젝트 안의 자신의 지도 경로로 지정한다.
   제공되지 않은 지도·높이를 임의 생성하지 않는다. 자산의 재배포 라이선스를
   코드의 MIT 라이선스로 대체하지 않으며 이 후보에는 지도 PNG를 넣지 않는다.
-- 상세 validation JSON/log와 화면 캡처, 사용하지 않는 과거 Django archive
+- 상세 validation JSON/log와 사용하지 않는 과거 Django archive
+- 예외: 사용 설명용으로 선정한 실제 브라우저 원본 PNG 12장은 docs/images/walkthrough/에, 사용자가 제공한 한·영 메인 PNG 2장은 docs/images/에 포함한다. 원본 영상·나머지 상세 캡처·실험 데이터는 로컬에 보존한다.
 
 새 컴퓨터에서는 README의 환경 설치를 한 뒤 실제 CARLA 설치 위치와 연구
 Python, 원본 dataset/calibration, map PNG, Roach checkpoint를 설정해야 한다.
 Settings → System Diagnostics와 태스크 준비 검사를 통과한 뒤 실행한다.
 기존 사용자 PC는 새 코드 적용 후 자산을 이동하거나 재설치할 필요가 없다.
 
-원격에 이미 있던 소형 `img/test_img`와 과거 구현 파일은 원격 전용 내용을
+원격에 이미 있던 소형 `legacy/fixtures/test_img`와 과거 구현 파일은 원격 전용 내용을
 보존하기 위해 그대로 유지했다. 새 수집 데이터나 가중치를 추가한 것은 아니다.
