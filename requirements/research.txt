@@ -1,0 +1,17 @@
+# Install into the existing SDV/CARLA Python environment, never blindly replace CUDA.
+# torch, torchvision and torch-scatter must match the installed CUDA/PyTorch versions.
+numpy
+opencv-python
+pygame>=2.5
+PyYAML>=6
+Pillow
+scipy
+pyquaternion
+efficientnet-pytorch
+pandas
+matplotlib
+psutil
+networkx
+shapely
+webcolors
+# CARLA: install the Python wheel supplied with the matching CARLA server release.

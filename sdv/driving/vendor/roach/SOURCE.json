@@ -1,0 +1,89 @@
+{
+  "repository": "https://github.com/junwoomin/LRS",
+  "commit": "6eaf6c38450efc540f5fb1c86ed2980dd96a59bc",
+  "license": "MIT for repository code; checkpoint redistribution provenance not established",
+  "upstream_sources": [
+    {
+      "path": "roach/models/ppo_policy.py",
+      "sha256": "ab1d9f5690af33add6299453964406bac01f8de4c5d46e18d18dc0f42d02afb8"
+    },
+    {
+      "path": "roach/models/torch_layers.py",
+      "sha256": "888019a6275e8a166a86f9f49a2ead1e9fab9f92739dd8f2e11eb3a7cee5b7cd"
+    },
+    {
+      "path": "roach/models/torch_util.py",
+      "sha256": "3c541f483f0da250410c9ba6552c0ecaa708477aa174ec94d8778cde84924825"
+    },
+    {
+      "path": "roach/models/distributions.py",
+      "sha256": "f88a0057531fa5a16044effde3b6ee3e1e8845502c7e5730ba91d3618aa5257c"
+    },
+    {
+      "path": "roach/utils/checkpoint.py",
+      "sha256": "66b2ce4910fa53855a2d1e23a55360bd452a6d73adabb2cbf083ccd5e9f8e6f1"
+    },
+    {
+      "path": "roach/utils/rl_birdview_wrapper.py",
+      "sha256": "499b75997564ee72fe6b23275227a33e87eea19ba2ce9944cf5447abf2bb036a"
+    },
+    {
+      "path": "roach/rl_birdview_agent.py",
+      "sha256": "b5d7144acbc0583e8f250103c27f29256645768c4af54d7dca6993aa8644de3e"
+    },
+    {
+      "path": "roach/config/config_agent.yaml",
+      "sha256": "6754fc15db7159d20d09d0916d1f3bb14bec50e7aec3d5cc62f223bdd9df4ecc"
+    },
+    {
+      "path": "loop.py",
+      "sha256": "30df8ddfc96b38d9498cfac352030a7f0976b41e89a2b4249374001ccee60c54"
+    },
+    {
+      "path": "sim/Global_Dynamic_MapManager.py",
+      "sha256": "3f771ad76eea1203e5983231c88872a32a987caf3bd2c098e3657e443707903a"
+    },
+    {
+      "path": "sim/routeplanner.py",
+      "sha256": "4048d021affc992270002bc0675652964b829fac0f8cc79fbc4dbe932bf68cb9"
+    },
+    {
+      "path": "sim/utility.py",
+      "sha256": "5243a256dbbe01064e234c5b8cc7bd65a289ed36a61216f9ffafe46d50c4628d"
+    },
+    {
+      "path": "sim/driving.py",
+      "sha256": "57387a57e2b66a882a48ab2798030d786c6e432b94bba11a70db1fe2aae01e26"
+    },
+    {
+      "path": "simulate.py",
+      "sha256": "da047a58a91babb082a87047e91f7d40898e8566d4ac6fbe1aa2a160a46e5d00"
+    },
+    {
+      "path": "docs/ASSET_SETUP.md",
+      "sha256": "17aad31ed8767b6d350ec71462144cadabdb5a015798ffdd0b75a4da2ef9a762"
+    }
+  ],
+  "vendored_files": [
+    "models/ppo_policy.py",
+    "models/torch_layers.py",
+    "models/torch_util.py",
+    "models/distributions.py"
+  ],
+  "changes": [
+    "Relative imports under sdv.driving.vendor.roach; no top-level roach module shadowing",
+    "PpoPolicy constructor accepts explicit device; default CPU prevents unwanted CUDA allocation",
+    "Unused upstream load removed; strict hash-gated weights_only loader is sdv.driving.policy",
+    "feature_input branch initializes cnn_feature to preserve seven-output API",
+    "Inference adapter consumes all seven forward returns and supplies tensors; broken six-output RlBirdviewAgent path is not used",
+    "Legacy Sequential CNN keys are converted without in-place collisions and current ModuleList keys are retained"
+  ],
+  "checkpoint": {
+    "path": "roach/log/ckpt_11833344.pth",
+    "size_bytes": 8890031,
+    "sha256": "1fecec0c8a206a9ac07a6a9b0be77a5b7e95a073b20d9dfc2a7397354355094a",
+    "source": "Existing user workspace cache, matched LRS hardcoded digest and documented size",
+    "public_download_source": "Unresolved by upstream; no guessed network URL",
+    "training_observation_profile": "Not encoded in checkpoint; transfer requires real CARLA validation"
+  }
+}

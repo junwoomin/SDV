@@ -1,0 +1,38 @@
+SDV BEV integration — source attribution
+=======================================
+
+The inverse affine crop and coordinate formulas in sdv/bev/geometry.py are
+adapted from junwoomin/LRS, commit fe9cbc2f8f38fa5f7808e6d161e645160958c6a2,
+sim/utility.py (make_local_bev_ego_aligned, global_pixel_to_local_bev).
+The complete MIT notice is retained in that module.
+
+MIT License
+Copyright (c) 2026 woomin jun
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+HBLR and the AGILEQ-Training repository referenced by its README were inspected
+as implementation evidence. Source commits, differences and licensing limits
+are recorded in docs/BEV_SOURCES_KO.md. No blanket MIT license is claimed for
+AGILEQ custom code or map assets. Its executable code and map caches are not
+bundled here. Comparison figures use the user's supplied LRS research assets
+solely to document this requested validation; they are not a new map license.
+
+Existing SDV/CARLA navigation code and its original source notices remain in
+their original modules. This file does not replace those notices.

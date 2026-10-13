@@ -1,0 +1,2 @@
+# Default entry point installs the web console.
+-r requirements-web.txt

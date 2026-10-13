@@ -1,0 +1,150 @@
+{
+  "schema_version": 1,
+  "instructions": "Set actual Town/spawn indices after --list-spawns and inspect global_route.json. Null indices are deliberate: no arbitrary spawn pair is claimed to exercise a scenario. Use a dedicated CARLA server; --run reloads Town each episode. Lead and pedestrian fixtures are deterministic but still require reviewing their interactions. Overpass actor-layer correctness is explicitly manual/unverified.",
+  "scenarios": [
+    {
+      "name": "straight",
+      "town": "Town03",
+      "start_spawn_index": null,
+      "destination_spawn_index": null,
+      "requires": {
+        "destination": true,
+        "forbidden_route_options": [
+          "LEFT",
+          "RIGHT",
+          "CHANGELANELEFT",
+          "CHANGELANERIGHT"
+        ]
+      }
+    },
+    {
+      "name": "left_turn",
+      "town": "Town03",
+      "start_spawn_index": null,
+      "destination_spawn_index": null,
+      "requires": {
+        "route_options": [
+          "LEFT"
+        ],
+        "destination": true
+      }
+    },
+    {
+      "name": "right_turn",
+      "town": "Town03",
+      "start_spawn_index": null,
+      "destination_spawn_index": null,
+      "requires": {
+        "route_options": [
+          "RIGHT"
+        ],
+        "destination": true
+      }
+    },
+    {
+      "name": "intersection",
+      "town": "Town03",
+      "start_spawn_index": null,
+      "destination_spawn_index": null,
+      "requires": {
+        "junction": true,
+        "destination": true
+      }
+    },
+    {
+      "name": "lane_change",
+      "town": "Town03",
+      "start_spawn_index": null,
+      "destination_spawn_index": null,
+      "requires": {
+        "any_route_options": [
+          "CHANGELANELEFT",
+          "CHANGELANERIGHT"
+        ],
+        "destination": true
+      }
+    },
+    {
+      "name": "red_light",
+      "town": "Town03",
+      "start_spawn_index": null,
+      "destination_spawn_index": null,
+      "duration_s": 180,
+      "requires": {
+        "red_stop": true,
+        "destination": true
+      }
+    },
+    {
+      "name": "lead_braking",
+      "town": "Town03",
+      "start_spawn_index": null,
+      "destination_spawn_index": null,
+      "duration_s": 30,
+      "lead_vehicle": {
+        "route_distance_m": 25,
+        "speed_mps": 3,
+        "brake_after_s": 8
+      },
+      "requires": {
+        "lead_braking": true
+      }
+    },
+    {
+      "name": "pedestrian",
+      "town": "Town03",
+      "start_spawn_index": null,
+      "destination_spawn_index": null,
+      "pedestrian": {
+        "route_distance_m": 30,
+        "lateral_offset_m": 4,
+        "trigger_distance_m": 15,
+        "speed_mps": 1.4
+      },
+      "requires": {
+        "pedestrian": true,
+        "destination": true
+      }
+    },
+    {
+      "name": "route_adherence",
+      "town": "Town03",
+      "start_spawn_index": null,
+      "destination_spawn_index": null,
+      "max_route_deviation_m": 2.5,
+      "requires": {
+        "destination": true
+      }
+    },
+    {
+      "name": "overpass",
+      "town": "Town04",
+      "start_spawn_index": null,
+      "destination_spawn_index": null,
+      "requires": {
+        "overpass": true,
+        "destination": true
+      }
+    },
+    {
+      "name": "destination",
+      "town": "Town03",
+      "start_spawn_index": null,
+      "destination_spawn_index": null,
+      "requires": {
+        "destination": true
+      }
+    },
+    {
+      "name": "continuous",
+      "town": "Town03",
+      "start_spawn_index": null,
+      "destination_spawn_index": null,
+      "duration_s": 300,
+      "traffic_count": 20,
+      "requires": {
+        "continuous_seconds": 120
+      }
+    }
+  ]
+}

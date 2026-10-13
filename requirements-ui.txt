@@ -1,0 +1,2 @@
+# Legacy desktop interface; keep CUDA/CARLA dependencies in their existing environment.
+-r requirements/research.txt
