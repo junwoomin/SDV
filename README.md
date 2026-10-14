@@ -1,55 +1,61 @@
 # SDV Studio
 
-![Actual English SDV Studio research dashboard with collected data, completed training and saved experiments](docs/images/dashboard-en.png)
+![SDV Studio English dashboard](docs/images/dashboard-en.png)
 
-*Actual English main dashboard after the 13 October 2026 functional demonstration. The 80 samples and completed three-epoch run verify execution, not convergence.*
+*Main dashboard for collection, training and experiment management.*
 
-A local workspace for autonomous driving research: configure CARLA, collect aligned sensor data, prepare scene-based datasets, train perception tasks, and inspect saved metrics and predictions.
+**SDV Studio is a research prototype for autonomous driving experiments in CARLA.** It brings simulation setup, sensor collection, dataset preparation, perception training and result inspection into a local web workspace. The interface supports Korean and English through the **KO / EN** selector.
 
-Use the app's **KO / EN** selector to switch languages.
+[한국어](README_ko.md) · [Illustrated user guide](docs/USER_GUIDE.md) · [Setup](docs/SETUP.md) · [Repository structure](docs/REPOSITORY_LAYOUT.md)
 
-[한국어](README_ko.md) · [Step-by-step guide with real screenshots](docs/USER_GUIDE.md) · [Setup and assets](docs/SETUP.md) · [Repository map](docs/REPOSITORY_LAYOUT.md)
+## Features
+
+| Area | What it does |
+| --- | --- |
+| Simulation | Configure CARLA, towns, traffic, driving modes and engine diagnostics; connect a compatible Roach policy. |
+| Sensors and collection | Configure camera/LiDAR/IMU inputs, preview sensors, collect aligned samples and inspect saved progress. |
+| Sequence inspection | Replay saved RGB, segmentation, depth, object annotations and BEV by frame. |
+| Dataset preparation | Split complete scenes into TRAIN/VAL and copy data with its recorded calibration. |
+| Perception training | Select image encoders, image/BEV decoders, tasks, losses and training parameters. |
+| Experiment management | Queue jobs, pause/resume at epoch boundaries, inspect metrics/checkpoints and browse saved predictions. |
 
 ## Start
+
+On Linux with Python 3.7 or later:
 
 ```bash
 ./start.sh
 ```
 
-Open [http://127.0.0.1:8765](http://127.0.0.1:8765). The launcher creates a separate web environment and installs its dependencies; Python 3.7+ is supported. Use **Settings** to connect your existing CARLA/PyTorch Python and CARLA 0.9.15 installation. The web environment does not install research CUDA/PyTorch packages. See [setup](docs/SETUP.md) before collection or training.
+Open [http://127.0.0.1:8765](http://127.0.0.1:8765). The launcher prepares a separate web environment and installs its dependencies. In **Settings**, select the research Python interpreter and CARLA 0.9.15 installation used for collection and training. [Setup](docs/SETUP.md) explains the required environments and assets.
 
-## How to use it
+## Workflow
 
-1. **Settings:** select the research interpreter, CARLA path and storage paths; save and run diagnostics. Keep the verified **Epic + Off-screen** profile.
-2. **Simulation → Collection / Sensors:** choose towns, sample counts, driving policy and sensors; save, start CARLA and check readiness.
-3. **Start collection:** inspect actual saved-sample progress and previews; confirm the completed job.
-4. **Sequences / Dataset:** select complete scenes for TRAIN and VAL, prepare a copied dataset, and use saved-data playback to check aligned RGB/Seg/Depth/OD/BEV frames.
-5. **Training → Setup:** select the dataset, model, tasks, losses and parameters; check readiness, then start or queue training.
-6. **Monitoring / Results:** inspect TRAIN/VAL legends, saved Epoch/Iteration predictions and checkpoints. Compare only compatible dataset fingerprints.
+1. **Settings:** save the research interpreter, CARLA installation and storage paths; run diagnostics.
+2. **Simulation / Sensors:** choose towns, driving mode and sensor outputs; start CARLA and check readiness.
+3. **Collection:** collect samples and inspect saved previews, counts and job logs.
+4. **Sequences / Dataset:** replay data, assign separate scenes to TRAIN/VAL and prepare the dataset.
+5. **Training:** select models, tasks, losses and parameters; check readiness and start or queue a job.
+6. **Monitoring / Results:** inspect metrics, checkpoints and saved Input / Ground truth / Prediction images.
 
-[Follow each action and expected result in the illustrated guide →](docs/USER_GUIDE.md)
+[Follow the workflow with screenshots →](docs/USER_GUIDE.md)
 
-## Repository map
+## Project status and requirements
+
+This prototype provides a workspace for developing and inspecting research experiments. Driving-policy transfer, BEV camera geometry, long-running stability and model convergence require further evaluation. Screenshots illustrate the interface; model quality must be assessed on an appropriate independent validation dataset.
+
+CARLA, its matching Python API, research PyTorch/CUDA dependencies, datasets and calibration are supplied separately. Global BEV maps require matching catalog metadata; Roach collection additionally requires a compatible checkpoint. Required assets are checked before the relevant job starts. Map and checkpoint redistribution rights are separate from the code license.
+
+## Source structure
 
 | Path | Role |
 | --- | --- |
-| `studio/` | Current web UI, API, job supervisor and local records |
-| `sdv/` | Current collection, BEV, driving, training and desktop implementation |
-| `configs/`, `requirements/` | Configuration examples/evaluation scenarios and dependency groups |
-| `scripts/`, `tests/` | Validation commands and regression tests |
-| `docs/` | Current guides, validation reports, real screenshots and historical documents |
-| `legacy/` | Preserved earlier collector/model/helper source and desktop fixtures |
+| `studio/` | Web interface, API, configuration and job management |
+| `sdv/` | Collection, BEV generation, driving, training and desktop interface |
+| `configs/`, `requirements/` | Configuration examples, scenarios and dependency groups |
+| `scripts/`, `tests/` | Validation tools and regression checks |
+| `docs/` | Setup, illustrated usage and technical documentation |
 
-Root Python scripts, `train_model/`, `carla_data_gan/`, `utils.py` and the small requirements includes remain compatibility bridges. [Exact entrypoints and migration map](docs/REPOSITORY_LAYOUT.md) explain which implementation each command uses. `trainx2.py` refers to an experiment absent from the supplied ZIP; use the supported Studio trainer.
+[Entrypoints and package details](docs/REPOSITORY_LAYOUT.md) · [Development checks](docs/development.md)
 
-[Cleanup verification and remaining visual checks](docs/CLEANUP_VALIDATION_KO.md)
-
-## Assets and validation scope
-
-Supply **CARLA, matching Python API, research dependencies, your datasets/calibration, licensed BEV map assets with their catalog, and a compatible Roach checkpoint** separately. They are not included in this repository. [Setup instructions](docs/SETUP.md) list the expected paths and checks.
-
-The 13 October run collected **80 samples**, prepared **TRAIN 40 / VAL 40 by separate scenes**, and finished **3 epochs / global step 30** with **252 prediction records**. Final VAL segmentation mIoU was **0.0341**, depth RMSE **24.846 m**, and BEV mean IoU **0**; VAL had **no positive object boxes**. These values demonstrate execution and recording only. They do not establish detection quality, convergence, or generalization. [Evidence and screenshot provenance](docs/SCREENSHOT_EVIDENCE.md).
-
-Supplied map PNGs lack precise metric road elevation; validity masks and **N/A** remain meaningful. Low rendering caused a UE4 Landscape SIGSEGV on the verified host. See [CARLA stability](docs/CARLA_STABILITY_KO.md), [training follow-up](docs/TRAINING_UI_FOLLOWUP_KO.md), [BEV contracts](docs/GLOBAL_MAP_INTEGRATION_KO.md) and [development checks](docs/development.md).
-
-MIT code license: [LICENSE](LICENSE). Upstream notices: [THIRD_PARTY_NOTICES](THIRD_PARTY_NOTICES). Map/checkpoint redistribution rights are separate; bundled Noto Sans KR fonts retain their SIL Open Font License.
+Code: [MIT license](LICENSE). Source attribution: [THIRD_PARTY_NOTICES](THIRD_PARTY_NOTICES). Bundled Noto Sans KR fonts retain their SIL Open Font License.

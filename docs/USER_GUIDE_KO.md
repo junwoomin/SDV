@@ -2,7 +2,7 @@
 
 [소개](../README_ko.md) · [English](USER_GUIDE.md) · [환경 준비](SETUP_KO.md)
 
-사진은 10월 13일 검증된 실행의 브라우저 원본이며 main `9fb7de2`와 UI 소스가 같습니다. 사진의 데이터셋·수치는 그 시연의 기록이고, 자신의 데이터에서는 달라집니다. [사진 출처·검증 범위](SCREENSHOT_EVIDENCE.md).
+SDV Studio는 CARLA 기반 자율주행 연구용 프로토타입입니다. 사진은 화면 구성을 설명하는 예시이며 경로·설정·수치는 자신의 환경과 데이터에 맞게 선택합니다. **KO / EN**에서 화면 언어를 바꿀 수 있습니다.
 
 ## 1. 앱을 열고 환경을 설정합니다
 
@@ -10,7 +10,7 @@
 
 ![기존 CARLA 경로·포트·Epic off-screen 프로파일을 확인하는 실제 시스템 설정](images/walkthrough/settings.png)
 
-*이 PC는 기존 CARLA와 연구 Python을 재사용했습니다. 사진의 경로는 해당 PC의 예시이며 새 컴퓨터에 그대로 입력하는 값이 아닙니다.*
+*자신의 PC에 설치된 CARLA와 연구 Python 경로를 지정합니다.*
 
 ## 2. CARLA와 수집·센서를 준비합니다
 
@@ -18,13 +18,13 @@
 
 ![준비된 CARLA 엔진과 Town01·Town03을 선택하는 실제 수집 설정](images/walkthrough/collection-settings.png)
 
-*시연은 Town01·Town03 각각 저장 샘플 40개, 시뮬레이션 30Hz입니다. 저장 프레임 수와 주행 제어 Tick은 다른 수량입니다.*
+*Town과 저장 샘플 수를 정합니다. 저장 프레임 수와 시뮬레이션 Tick은 별개입니다.*
 
 **센서 구성**에서 출력 종류·위치·회전·해상도·시야각을 정합니다. 필요하면 실제 센서 미리보기를 사용합니다. **미리보기에 적용**은 초안 확인이고, **센서 설정 저장**은 수집에 사용할 설정 저장입니다. 미리보기를 중지한 뒤 수집합니다.
 
 ![전방 카메라와 RGB·Seg·Depth·객체 주석을 설정하는 실제 센서 화면](images/walkthrough/sensor-settings.png)
 
-*검증 실행은 전방 400×300, BEV 500×500을 사용했습니다. 배치 그림만이 아니라 수치 보정이 저장 데이터의 기하를 정의합니다.*
+*위치·회전·해상도·시야각의 수치 설정이 수집 데이터의 보정을 정의합니다.*
 
 ## 3. 실제로 수집하고 저장 결과를 확인합니다
 
@@ -32,9 +32,9 @@
 
 ![실제 수집 중 작업 상태와 저장 카메라 미리보기](images/walkthrough/collection-running.png)
 
-![80개 중 80개 수집 완료와 실제 저장 BEV](images/walkthrough/collection-complete.png)
+![수집 완료 상태와 저장 BEV 미리보기](images/walkthrough/collection-complete.png)
 
-*시연은 약 24.49초에 80/80샘플로 완료했습니다. 이 안내를 위해 추가 CARLA 수집을 실행하지 않았습니다.*
+*완료 상태, 실제 저장 샘플 수와 로그를 확인한 뒤 데이터셋을 준비합니다.*
 
 ## 4. 장면을 분할하고 데이터셋을 재생합니다
 
@@ -42,13 +42,13 @@
 
 ![서로 다른 장면을 TRAIN·VAL로 지정해 데이터셋을 준비하는 실제 화면](images/walkthrough/dataset-split.png)
 
-*Town01 TRAIN 40, Town03 VAL 40입니다. 두 Town의 소규모 시연만으로 넓은 환경이나 일반화 성능을 검증한 것은 아닙니다.*
+*서로 다른 장면을 TRAIN·VAL로 배정하고 원본 데이터를 보존합니다.*
 
 Sequence와 Camera를 고르고 재생하거나 Frame 슬라이더를 움직입니다. 같은 Frame ID의 RGB·Seg·Depth·객체 주석·BEV가 정렬됐는지 확인합니다. 제공된 BEV 채널만 선택하고 노란 자산·높이 경고를 확인합니다.
 
 ![같은 저장 프레임의 RGB·Seg·Depth·OD·BEV를 재생하는 실제 화면](images/walkthrough/sequence-playback.png)
 
-*이 VAL 프레임의 객체 상자는 0개입니다. 정밀 BEV 높이는 제공되지 않았습니다. 화면의 Ego 높이나 지도 레이어 값이 누락된 픽셀별 도로 높이를 대체하지 않습니다.*
+*실제 주석과 제공된 BEV 레이어를 확인합니다. 없는 정밀 도로 높이는 N/A입니다.*
 
 ## 5. 모델·태스크·손실·학습 설정을 정합니다
 
@@ -58,9 +58,9 @@ Sequence와 Camera를 고르고 재생하거나 Frame 슬라이더를 움직입�
 
 **태스크 설정**에서 관측된 Seg 클래스와 유효 마스크를 확인합니다. 태스크마다 지원하는 손실과 양수 가중치를 정하고, 클래스 추천은 변경 내용을 확인한 뒤 적용합니다. Epoch·Batch·학습률·Optimizer·입력 크기·예측 이미지 기록 주기를 정합니다. 저장 후 **준비 상태 검사**를 누르면 데이터·의존성·CUDA·선택한 공식 사전학습 가중치를 검사합니다. 일반 상태 조회만으로 가중치를 다운로드하지 않습니다. 준비가 완료되면 시작하거나 대기열에 넣습니다.
 
-![3 Epoch·Batch 4·Adam·128×128을 정하는 실제 기능 시연 설정](images/walkthrough/training-config.png)
+![학습 파라미터와 준비 검사를 설정하는 화면](images/walkthrough/training-config.png)
 
-*시연은 ResNet18 / FPN / BEV ResNet, Seg/Depth/OD/BEV, 학습률 0.0001, 3 Epoch입니다. 수렴을 위한 권장 설정이 아닌 기능 시연 값이며 사진은 최종 준비 검사 전입니다.*
+*태스크와 데이터에 맞는 학습 파라미터를 정하고 준비 검사를 실행합니다.*
 
 ## 6. 학습 진행과 체크포인트를 확인합니다
 
@@ -68,7 +68,7 @@ Sequence와 Camera를 고르고 재생하거나 Frame 슬라이더를 움직입�
 
 ![실제 CUDA 학습 작업의 모니터 화면](images/walkthrough/training-monitor.png)
 
-*이 작업은 약 30.21초에 3 Epoch / Global step 30으로 완료했습니다. 완료된 모니터 화면은 실행 결과를 확인하며 모델 성능 벤치마크가 아닙니다.*
+*Epoch·Step 진행과 체크포인트 상태를 확인한 뒤 작업을 이어갑니다.*
 
 ## 7. 예측 이미지와 지표를 탐색합니다
 
@@ -80,6 +80,6 @@ Loss 그래프와 태스크 지표 표에서 **TRAIN / VAL** 범례와 지표의
 
 ![실제 TRAIN·VAL loss 범례와 저장 태스크 지표](images/walkthrough/metrics.png)
 
-*마지막 VAL Seg mIoU 0.0341, Depth RMSE 24.846 m, BEV mean IoU 0입니다. VAL에 양성 객체 상자가 없어 탐지 성능을 판단할 수 없습니다. 예측 기록 252개는 이미지 탐색 기능을 확인하며, 3 Epoch 실행으로 수렴을 주장하지 않습니다.*
+*검증 분할과 실제 라벨을 기준으로 지표를 해석합니다. 화면의 값은 예시입니다.*
 
-손실·재시작·이미지 기록 설정은 [학습 후속 검증](TRAINING_UI_FOLLOWUP_KO.md), 정밀 BEV 높이 한계와 Epic/Low 차이는 [BEV 통합](GLOBAL_MAP_INTEGRATION_KO.md)과 [CARLA 안정화](CARLA_STABILITY_KO.md)를 참고하세요.
+지원 선택값과 프로토타입의 범위는 [모델·학습 설정](MODELS_KO.md), [BEV 계약](GLOBAL_MAP_INTEGRATION_KO.md), [환경 준비](SETUP_KO.md)를 참고하세요.

@@ -1,6 +1,6 @@
 # Environment and separately supplied assets
 
-[Overview](../README.md) · [한국어](SETUP_KO.md) · [Illustrated workflow](USER_GUIDE.md)
+[Research prototype overview](../README.md) · [한국어](SETUP_KO.md) · [Illustrated workflow](USER_GUIDE.md)
 
 ## Web console
 
@@ -16,7 +16,7 @@ Open `http://127.0.0.1:8765`. The launcher prepares a separate `.venv-web` (or `
 
 ## Research environment and CARLA
 
-Reuse your existing validated Python/CARLA/PyTorch environment if available. Otherwise prepare a separate environment compatible with the GPU, PyTorch/torchvision and CARLA Python wheel before installing [research dependencies](../requirements/research.txt). That historical list is an environment reconstruction aid, not a tested one-command fresh install. [Roach dependencies](../requirements/roach.txt) describe the dedicated runtime target; the recorded host also validated an existing Python 3.9.25 environment. Wheel availability must match your selected Python and server.
+Reuse your existing validated Python/CARLA/PyTorch environment if available. Otherwise prepare a separate environment compatible with the GPU, PyTorch/torchvision and CARLA Python wheel before installing [research dependencies](../requirements/research.txt). Review these dependencies against your selected CUDA/PyTorch and CARLA environment. [Roach dependencies](../requirements/roach.txt) describe the dedicated Python 3.10 collector environment. Wheel availability must match your selected Python and server.
 
 In Settings select the research Python executable and existing CARLA engine directory. Keep **CARLA server and API 0.9.15**, distinct RPC/TM ports, and **Epic + Off-screen**. Run diagnostics. If no engine is installed, Studio's **Install & start CARLA** prepares the matching client in the selected interpreter and downloads the engine after your action. The engine is about 7.81 GiB; initial free-space requirement is 45 GiB. Existing/broken mismatched clients are reported rather than overwritten. An independently started server may be connected separately.
 
@@ -32,12 +32,10 @@ In Settings select the research Python executable and existing CARLA engine dire
 | Calibration | Recorded `sensor_config.yaml` copied with scenes/dataset | Actual camera geometry agrees with labels and training config |
 | Encoder weights | `.runtime/cache/torch/hub/checkpoints/` | Training **Check readiness** downloads only the selected official file and checks its hash |
 
-Supply map **catalog metadata together with the exact map files**; copying PNG folders alone is insufficient. The repository includes no map catalog or distributable checkpoint. Do not invent missing maps, calibration, road-height images or labels. Asset redistribution rights are separate from the code license. [Local asset scope](LOCAL_RUNTIME_ASSETS_KO.md) and [map audit](GLOBAL_MAP_SOURCE_AUDIT_KO.md) provide details.
+Supply map **catalog metadata together with the exact map files**; copying PNG folders alone is insufficient. The repository includes no map catalog or distributable checkpoint. Do not invent missing maps, calibration, road-height images or labels. Asset redistribution rights are separate from the code license. See [BEV map requirements](GLOBAL_MAP_INTEGRATION_KO.md).
 
-Dataset preparation copies scene data and its recorded calibration without changing the source. Generated collection data, training outputs, checkpoints, environments and `.runtime` records are ignored by Git. An optional old `img/test.pth` / `img/test.pt` may still be supplied by its owner; training can instead preview real validation samples. Preserved desktop demonstration images live in `legacy/fixtures/test_img/` and do not replace a training dataset.
+Dataset preparation copies scene data and its recorded calibration without changing the source. Generated collection data, training outputs, checkpoints, environments and `.runtime` records are ignored by Git. An optional old `img/test.pth` / `img/test.pt` may still be supplied by its owner; training can instead preview real validation samples. Desktop example images live in `sdv/ui/assets/samples/` and do not replace a training dataset.
 
 ## Before each actual run
 
-Save settings, stop sensor preview, check CARLA Ready and collection readiness. For training select the complete TRAIN/VAL dataset, tasks, calibration and official weights, then pass training readiness. Do not infer runtime readiness from unit tests. See [the visual guide](USER_GUIDE.md), [known engine issue](CARLA_STABILITY_KO.md) and [development checks](development.md).
-
-Existing on-host assets, user settings and experiment records need not be moved when reviewing this candidate. Review code separately before applying it to an active app. The alternate object-detection experiment referenced by `trainx2.py` is absent from the supplied snapshot and cannot be reproduced from this release.
+Save settings, stop sensor preview, check CARLA Ready and collection readiness. For training select the complete TRAIN/VAL dataset, tasks, calibration and official weights, then pass training readiness. Do not infer runtime readiness from unit tests. See [the visual guide](USER_GUIDE.md), [prototype status](../README.md#project-status-and-requirements) and [development checks](development.md).

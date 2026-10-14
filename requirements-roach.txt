@@ -1,2 +1,0 @@
-# Compatibility include. Canonical dependencies: requirements/roach.txt
--r requirements/roach.txt

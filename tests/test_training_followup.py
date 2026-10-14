@@ -7,7 +7,7 @@ from studio.jobs import JobManager
 from studio.predictions import prediction_index
 from sdv.training.preview_config import should_capture
 from test_training_queue import paused_job, manual_dispatch
-from test_studio_jobs import command, wait_for
+from test_studio_jobs import command, wait_for, namespace_psutil_adapter
 from test_predictions import saved_manifest, _torch_fixture
 
 

@@ -31,8 +31,7 @@ HBLR and the AGILEQ-Training repository referenced by its README were inspected
 as implementation evidence. Source commits, differences and licensing limits
 are recorded in docs/BEV_SOURCES_KO.md. No blanket MIT license is claimed for
 AGILEQ custom code or map assets. Its executable code and map caches are not
-bundled here. Comparison figures use the user's supplied LRS research assets
-solely to document this requested validation; they are not a new map license.
+bundled here. Map assets and policy checkpoints require their own redistribution rights.
 
 Existing SDV/CARLA navigation code and its original source notices remain in
 their original modules. This file does not replace those notices.

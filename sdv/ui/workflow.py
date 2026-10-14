@@ -1598,13 +1598,13 @@ while running:
             ]
 
             paths = {
-                0: 'legacy/fixtures/test_img/rgb_left/test.png',
-                1: 'legacy/fixtures/test_img/rgb_front/test.png',
-                2: 'legacy/fixtures/test_img/rgb_right/test.png',
-                4: 'legacy/fixtures/test_img/rgb_rear/test.png',
-                3: 'legacy/fixtures/test_img/rgb_rear_left/test.png',
-                5: 'legacy/fixtures/test_img/rgb_rear_right/test.png',
-                7: 'legacy/fixtures/test_img/top_view/test.jpg',
+                0: 'sdv/ui/assets/samples/rgb_left/test.png',
+                1: 'sdv/ui/assets/samples/rgb_front/test.png',
+                2: 'sdv/ui/assets/samples/rgb_right/test.png',
+                4: 'sdv/ui/assets/samples/rgb_rear/test.png',
+                3: 'sdv/ui/assets/samples/rgb_rear_left/test.png',
+                5: 'sdv/ui/assets/samples/rgb_rear_right/test.png',
+                7: 'sdv/ui/assets/samples/top_view/test.jpg',
             }
             if not sensor_checkboxes['front_cam']:
                 del paths[1]
@@ -1637,23 +1637,23 @@ while running:
 
             paths = {
             # Segmentation
-            0: 'legacy/fixtures/test_img/seg_left/test.png',
-            1: 'legacy/fixtures/test_img/seg_front/test.png',
-            2: 'legacy/fixtures/test_img/seg_right/test.png',
-            3: 'legacy/fixtures/test_img/seg_rear_left/test.png',
-            4: 'legacy/fixtures/test_img/seg_rear/test.png',
-            5: 'legacy/fixtures/test_img/seg_rear_right/test.png',
+            0: 'sdv/ui/assets/samples/seg_left/test.png',
+            1: 'sdv/ui/assets/samples/seg_front/test.png',
+            2: 'sdv/ui/assets/samples/seg_right/test.png',
+            3: 'sdv/ui/assets/samples/seg_rear_left/test.png',
+            4: 'sdv/ui/assets/samples/seg_rear/test.png',
+            5: 'sdv/ui/assets/samples/seg_rear_right/test.png',
 
             # Depth
-            6: 'legacy/fixtures/test_img/depth_left/test.png',
-            7: 'legacy/fixtures/test_img/depth_front/test.png',
-            8: 'legacy/fixtures/test_img/depth_right/test.png',
-            9: 'legacy/fixtures/test_img/depth_rear_left/test.png',
-            10: 'legacy/fixtures/test_img/depth_rear/test.png',
-            11: 'legacy/fixtures/test_img/depth_rear_right/test.png',
+            6: 'sdv/ui/assets/samples/depth_left/test.png',
+            7: 'sdv/ui/assets/samples/depth_front/test.png',
+            8: 'sdv/ui/assets/samples/depth_right/test.png',
+            9: 'sdv/ui/assets/samples/depth_rear_left/test.png',
+            10: 'sdv/ui/assets/samples/depth_rear/test.png',
+            11: 'sdv/ui/assets/samples/depth_rear_right/test.png',
 
             # BEV
-            13: 'legacy/fixtures/test_img/bev_re/test.jpg'
+            13: 'sdv/ui/assets/samples/bev_re/test.jpg'
             }
 
             if not seg_all_checked:
@@ -2235,13 +2235,13 @@ while running:
 
 
             paths = {
-                0: 'legacy/fixtures/test_img/rgb_left/test.png',
-                1: 'legacy/fixtures/test_img/rgb_front/test.png',
-                2: 'legacy/fixtures/test_img/rgb_right/test.png',
-                4: 'legacy/fixtures/test_img/rgb_rear/test.png',
-                3: 'legacy/fixtures/test_img/rgb_rear_left/test.png',
-                5: 'legacy/fixtures/test_img/rgb_rear_right/test.png',
-                7: 'legacy/fixtures/test_img/top_view/test.jpg',
+                0: 'sdv/ui/assets/samples/rgb_left/test.png',
+                1: 'sdv/ui/assets/samples/rgb_front/test.png',
+                2: 'sdv/ui/assets/samples/rgb_right/test.png',
+                4: 'sdv/ui/assets/samples/rgb_rear/test.png',
+                3: 'sdv/ui/assets/samples/rgb_rear_left/test.png',
+                5: 'sdv/ui/assets/samples/rgb_rear_right/test.png',
+                7: 'sdv/ui/assets/samples/top_view/test.jpg',
             }
             if Front_cam_color !=BLUE:
                 del paths[1]
@@ -2277,23 +2277,23 @@ while running:
 
             paths = {
             # Segmentation
-            0: 'legacy/fixtures/test_img/seg_left/test.png',
-            1: 'legacy/fixtures/test_img/seg_front/test.png',
-            2: 'legacy/fixtures/test_img/seg_right/test.png',
-            3: 'legacy/fixtures/test_img/seg_rear_left/test.png',
-            4: 'legacy/fixtures/test_img/seg_rear/test.png',
-            5: 'legacy/fixtures/test_img/seg_rear_right/test.png',
+            0: 'sdv/ui/assets/samples/seg_left/test.png',
+            1: 'sdv/ui/assets/samples/seg_front/test.png',
+            2: 'sdv/ui/assets/samples/seg_right/test.png',
+            3: 'sdv/ui/assets/samples/seg_rear_left/test.png',
+            4: 'sdv/ui/assets/samples/seg_rear/test.png',
+            5: 'sdv/ui/assets/samples/seg_rear_right/test.png',
 
             # Depth
-            6: 'legacy/fixtures/test_img/depth_left/test.png',
-            7: 'legacy/fixtures/test_img/depth_front/test.png',
-            8: 'legacy/fixtures/test_img/depth_right/test.png',
-            9: 'legacy/fixtures/test_img/depth_rear_left/test.png',
-            10: 'legacy/fixtures/test_img/depth_rear/test.png',
-            11: 'legacy/fixtures/test_img/depth_rear_right/test.png',
+            6: 'sdv/ui/assets/samples/depth_left/test.png',
+            7: 'sdv/ui/assets/samples/depth_front/test.png',
+            8: 'sdv/ui/assets/samples/depth_right/test.png',
+            9: 'sdv/ui/assets/samples/depth_rear_left/test.png',
+            10: 'sdv/ui/assets/samples/depth_rear/test.png',
+            11: 'sdv/ui/assets/samples/depth_rear_right/test.png',
 
             # BEV
-            13: 'legacy/fixtures/test_img/bev_re/test.jpg'
+            13: 'sdv/ui/assets/samples/bev_re/test.jpg'
             }
             all_seg_true = all(
                 sensor_config[name]['seg']

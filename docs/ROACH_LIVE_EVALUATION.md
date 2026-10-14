@@ -1,6 +1,8 @@
-# Roach CARLA 비교 실행
+# Roach 주행 평가 도구
 
-이 평가기는 실제 CARLA 서버에 연결해야 주행 결과를 생성한다. `--preflight`는 실행 환경 확인이며 주행 성공/안정성 증거가 아니다. 현재 작업 환경의 실측 사전 점검은 `validation/roach_evaluation/preflight.json`에 기록되어 있다. 해당 기록은 CARLA RPC 연결 거부를 표시하며 주행 지표를 포함하지 않는다.
+[Roach 정책 연결](ROACH_INTEGRATION_KO.md) · [환경 준비](SETUP_KO.md)
+
+전용 CARLA 서버에서 동일 경로·초기 조건의 컨트롤러를 비교하고 프레임별 제어와 주행 지표를 저장하는 도구입니다. 평가할 Town, 경로, 지도와 호환 정책 가중치를 별도로 준비합니다.
 
 ## 실행
 

@@ -1,2 +1,0 @@
-# Compatibility include. Canonical dependencies: requirements/ui.txt
--r requirements/ui.txt

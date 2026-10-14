@@ -2,7 +2,7 @@
 
 [Overview](../README.md) · [한국어](USER_GUIDE_KO.md) · [Setup](SETUP.md)
 
-Screenshots are unmodified browser captures of the verified 13 October run, using the same UI source as main `9fb7de2`. They show Korean labels; English equivalents below match the app's EN selector. The shown dataset and results belong to that run; your counts depend on your own data. [Provenance and limits](SCREENSHOT_EVIDENCE.md).
+SDV Studio is a CARLA research prototype. Screenshots illustrate the interface; paths, settings and values should be chosen for your own environment and dataset. Use the **KO / EN** selector to change the UI language.
 
 ## 1. Open the workspace and set the environment
 
@@ -10,7 +10,7 @@ Run `./start.sh`, open `http://127.0.0.1:8765`, and select **Settings** in the l
 
 ![Actual settings screen with the existing CARLA path, ports and Epic off-screen profile](images/walkthrough/settings.png)
 
-*The demonstrated machine reused its existing CARLA and research interpreter. Paths in this image are examples from that PC, not paths to copy onto another computer.*
+*Set the CARLA and research-interpreter paths for your machine.*
 
 ## 2. Choose CARLA and collection settings
 
@@ -18,13 +18,13 @@ Open **Simulation → Collection settings**. Choose towns, samples, camera input
 
 ![Actual collection setup selecting Town01 and Town03 with a prepared CARLA engine](images/walkthrough/collection-settings.png)
 
-*The demo selected Town01 and Town03 with 40 saved samples per town. The simulation ran at 30 Hz. Saved-frame counts and control ticks are different quantities.*
+*Choose towns and saved sample counts independently of the simulation tick rate.*
 
 Open **Sensors**, enable the required outputs and enter position, rotation, resolution and field of view. Use live preview when needed; **Apply to preview** checks a draft, while **Save sensor settings** commits it for collection. Stop the sensor preview before collection.
 
 ![Actual sensor settings for the front camera and selected RGB, segmentation, depth and object annotations](images/walkthrough/sensor-settings.png)
 
-*The verified run used front camera 400×300 and BEV 500×500. Numeric calibration, not the placement sketch alone, defines the recorded geometry.*
+*Numeric position, rotation, resolution and field of view define the recorded calibration.*
 
 ## 3. Collect and verify saved data
 
@@ -32,9 +32,9 @@ Return to collection, click **Start collection**, review the job snapshot and co
 
 ![Real running collection job with saved camera preview](images/walkthrough/collection-running.png)
 
-![Completed real collection showing 80 out of 80 saved samples and BEV](images/walkthrough/collection-complete.png)
+![Completed collection and saved BEV preview](images/walkthrough/collection-complete.png)
 
-*This run finished 80/80 samples in about 24.49 seconds. No additional CARLA run was needed to produce this guide.*
+*Check completion, saved-sample counts and logs before preparing a dataset.*
 
 ## 4. Split scenes, choose a dataset and replay it
 
@@ -42,13 +42,13 @@ Open **Sequence analysis / Dataset**, assign complete scenes to TRAIN and VAL, g
 
 ![Actual scene selection preparing a dataset with separate TRAIN and VAL scenes](images/walkthrough/dataset-split.png)
 
-*Here Town01 supplies TRAIN 40 and Town03 supplies VAL 40. Two different towns in this small demo do not establish broad coverage or generalization.*
+*Use separate scenes for TRAIN and VAL and preserve the source data.*
 
 Choose a sequence and camera, then press Play or move the Frame slider. Verify aligned RGB, segmentation, depth, object annotations and BEV for the selected Frame ID. Select another BEV layer only when supplied; heed the yellow asset/height warnings.
 
 ![Actual synchronized stored-frame playback with RGB, segmentation, depth, object boxes and BEV](images/walkthrough/sequence-playback.png)
 
-*The shown VAL frame has zero object boxes. Metric BEV height is unavailable; a displayed ego or map-layer value does not create missing per-pixel road elevation.*
+*Inspect actual annotations and available BEV layers; missing road height remains N/A.*
 
 ## 5. Select model, tasks, losses and training parameters
 
@@ -58,17 +58,17 @@ Open **Training → Setup** and select the prepared dataset from the TRAIN/VAL p
 
 In **Task settings**, inspect observed segmentation classes and validity masks. Choose a supported loss for each enabled task and positive task weights; review the recommendation before applying class changes. Set epochs, batch size, learning rate, optimizer, input size and prediction-recording intervals. Save and run **Check readiness**; it verifies data, dependencies, CUDA and the selected official pretrained weights. A status read alone does not download weights. Start or enqueue only after readiness succeeds.
 
-![Actual short demo configuration with 3 epochs, batch 4, Adam and 128 by 128 inputs](images/walkthrough/training-config.png)
+![Training parameters and readiness controls](images/walkthrough/training-config.png)
 
-*The demo used ResNet18 / FPN / BEV ResNet, Seg/Depth/OD/BEV, LR 0.0001 and 3 epochs. These are functional-demo settings, not recommended convergence settings. This capture precedes the final readiness action.*
+*Choose training parameters for the task and dataset, then run readiness checks.*
 
 ## 6. Watch training and use checkpoints
 
 Select **Monitoring** to inspect actual epoch/step progress, measured ETA, logs and saved metrics. Queueing retains immutable configuration/data/calibration snapshots. **Pause** finishes the current epoch; **Resume** continues from its checkpoint. **Start again** creates a new run from epoch 1. Stopped-job continuation requires a compatible completed checkpoint.
 
-![Actual training monitor from the CUDA demo job](images/walkthrough/training-monitor.png)
+![Training progress and checkpoint monitor](images/walkthrough/training-monitor.png)
 
-*This job completed 3 epochs / global step 30 in about 30.21 seconds. The completed monitor verifies execution; it is not a model-quality benchmark.*
+*Inspect epoch/step progress and the checkpoint state before continuing a job.*
 
 ## 7. Browse predictions and interpret results
 
@@ -80,6 +80,6 @@ Scroll to loss graphs and task tables. Read the **TRAIN / VAL** legend and metri
 
 ![Actual TRAIN and VAL loss legends and per-task recorded metrics](images/walkthrough/metrics.png)
 
-*Final VAL Seg mIoU 0.0341, depth RMSE 24.846 m, BEV mean IoU 0. VAL has no positive object boxes, so detection quality cannot be established from this split. The 252 prediction records verify saved-image exploration; this three-epoch run does not demonstrate convergence.*
+*Interpret metrics against the validation split and available labels. Screen values are examples.*
 
-For supported losses, restart behavior and recording controls see [training follow-up](TRAINING_UI_FOLLOWUP_KO.md). For precise BEV height limitations and Epic/Low behavior see [BEV integration](GLOBAL_MAP_INTEGRATION_KO.md) and [CARLA stability](CARLA_STABILITY_KO.md).
+See [model and training settings](MODELS_KO.md), [BEV contracts](GLOBAL_MAP_INTEGRATION_KO.md) and [setup](SETUP.md) for supported options and prototype limitations.

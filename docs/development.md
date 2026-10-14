@@ -1,21 +1,20 @@
 # Development checks
 
-[한국어](development_ko.md) · [Overview](../README.md) · [Repository paths](REPOSITORY_LAYOUT.md)
+[한국어](development_ko.md) · [Overview](../README.md) · [Repository structure](REPOSITORY_LAYOUT.md)
 
-The current implementation is `studio` plus `sdv`; historical publication assumptions are preserved in [original development notes](legacy/development_original_EN.md). Read [setup](SETUP.md) for the separate research environment and assets.
-
-Use a dedicated test environment with `requirements/dev.txt`. Existing prepared environments may be reused without changing research packages:
+Use a separate test environment; collection/training dependencies are described in [setup](SETUP.md).
 
 ```bash
-python -m pytest -q
+python -m venv .venv-dev
+.venv-dev/bin/python -m pip install -r requirements/dev.txt
+.venv-dev/bin/python -m pytest -q
 bash -n start.sh start-desktop.sh
-python -m compileall -q sdv studio legacy train_model carla_data_gan
-python -m studio --help
-python -m sdv.collection.runner --help
+.venv-dev/bin/python -m compileall -q sdv studio train_model
+.venv-dev/bin/python -m studio --help
+.venv-dev/bin/python -m sdv.collection.runner --help
+.venv-dev/bin/python scripts/check_web.py
 ```
 
-When unrelated system pytest plugins (such as ROS launch testing) enter an incompatible interpreter, set `PYTEST_DISABLE_PLUGIN_AUTOLOAD=1` for this repository's checks. The suite does not require those external plugins. Use a host that permits localhost sockets/subprocess communication for process/API tests.
+Use `PYTEST_DISABLE_PLUGIN_AUTOLOAD=1` if unrelated system pytest plugins interfere with the test interpreter. Process/API tests need localhost sockets and subprocess communication.
 
-Native-map integration tests need the separately supplied `assets/bev_maps/catalog.json` and exact map package. They skip with a reason in a source-only checkout. Other optional tests report missing native assets/dependencies or comparison sources. Supply originals to execute them; do not replace them with invented fixtures. This candidate's validation reports distinguish source-only and original-asset runs.
-
-Tests and CPU checks do not establish real CARLA/CUDA correctness. The [actual execution records](SCREENSHOT_EVIDENCE.md), [engine validation](CARLA_STABILITY_KO.md) and [training validation](TRAINING_UI_FOLLOWUP_KO.md) retain their distinct scopes. Full simulator downloads, training, driver changes and remote publication are not part of a documentation cleanup.
+Tests needing PyTorch, OpenCV, native maps or other optional assets may skip in the web-only environment. Use the corresponding research environment and original assets to exercise those paths. Syntax, API and CPU tests cover their stated boundaries; evaluate CARLA/CUDA execution, driving stability, BEV geometry and model convergence separately.

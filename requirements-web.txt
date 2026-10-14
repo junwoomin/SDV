@@ -1,2 +1,0 @@
-# Compatibility include. Canonical dependencies: requirements/web.txt
--r requirements/web.txt

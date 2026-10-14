@@ -30,7 +30,7 @@ def _torch():
     try:
         import torch
     except ImportError as exc:
-        raise PolicyError("Roach requires the Python 3.10+ environment in requirements-roach.txt") from exc
+        raise PolicyError("Roach requires the Python 3.10+ environment in requirements/roach.txt") from exc
     if not hasattr(torch.serialization, "safe_globals"):
         raise PolicyError("Roach requires PyTorch >=2.6 with restricted weights_only checkpoint loading")
     return torch
